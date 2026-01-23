@@ -14,8 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ['Playfair Display', 'Georgia', 'serif'],
+        display: ['Jost', 'Futura', 'system-ui', 'sans-serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        arabic: ['IBM Plex Sans Arabic', 'Inter', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -51,12 +52,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        gallery: {
-          cream: "hsl(var(--gallery-cream))",
-          "warm-gray": "hsl(var(--gallery-warm-gray))",
-          charcoal: "hsl(var(--gallery-charcoal))",
-          gold: "hsl(var(--gallery-gold))",
-          "gold-muted": "hsl(var(--gallery-gold-muted))",
+        olive: {
+          cream: "hsl(var(--olive-cream))",
+          stone: "hsl(var(--olive-stone))",
+          deep: "hsl(var(--olive-deep))",
+          brass: "hsl(var(--olive-brass))",
+          "brass-muted": "hsl(var(--olive-brass-muted))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -110,6 +111,7 @@ export default {
       letterSpacing: {
         'widest': '0.2em',
         'ultra': '0.3em',
+        'museum': '0.15em',
       },
     },
   },

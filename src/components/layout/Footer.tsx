@@ -1,74 +1,77 @@
 import { Link } from 'react-router-dom';
 import { Instagram } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export const Footer = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="border-t border-border bg-card">
       <div className="gallery-container section-padding">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/" className="font-serif text-2xl tracking-tight">
-              Studio Aura
+            <Link to="/" className="font-display text-2xl tracking-museum uppercase">
+              Olive Studios
             </Link>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-              Museum-grade photography editions from Egypt & the region. Limited runs, exceptional quality.
+              {t('footer.desc')}
             </p>
           </div>
 
           {/* Shop */}
           <div>
-            <h4 className="font-serif text-lg mb-4">Shop</h4>
+            <h4 className="font-display text-lg tracking-wide uppercase mb-4">{t('footer.shop')}</h4>
             <nav className="flex flex-col gap-3">
               <Link to="/collection" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Collection 001
+                {t('nav.collection')}
               </Link>
               <Link to="/artists" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Artists
+                {t('nav.artists')}
               </Link>
               <Link to="/print-quality" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Print Quality
+                {t('nav.quality')}
               </Link>
             </nav>
           </div>
 
           {/* Information */}
           <div>
-            <h4 className="font-serif text-lg mb-4">Information</h4>
+            <h4 className="font-display text-lg tracking-wide uppercase mb-4">{t('footer.information')}</h4>
             <nav className="flex flex-col gap-3">
               <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                About Us
+                {t('nav.about')}
               </Link>
               <Link to="/shipping" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Shipping & Returns
+                {t('nav.shipping')}
               </Link>
               <Link to="/corporate" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Corporate & Designers
+                {t('nav.corporate')}
               </Link>
               <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Contact
+                {t('nav.contact')}
               </Link>
             </nav>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-serif text-lg mb-4">Connect</h4>
+            <h4 className="font-display text-lg tracking-wide uppercase mb-4">{t('footer.connect')}</h4>
             <div className="flex flex-col gap-3">
               <a 
-                href="https://instagram.com/studioaura" 
+                href="https://instagram.com/olivestudios" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Instagram className="w-4 h-4" />
-                @studioaura
+                @olivestudios
               </a>
               <a 
-                href="mailto:hello@studioaura.com"
+                href="mailto:hello@olivestudios.com"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
-                hello@studioaura.com
+                hello@olivestudios.com
               </a>
               <p className="text-sm text-muted-foreground">
                 Cairo, Egypt
@@ -80,14 +83,14 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Studio Aura. All rights reserved.
+            {t('footer.copyright')}
           </p>
           <div className="flex gap-6">
             <Link to="/privacy" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-              Privacy Policy
+              {t('footer.privacy')}
             </Link>
             <Link to="/terms" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-              Terms of Service
+              {t('footer.terms')}
             </Link>
           </div>
         </div>
