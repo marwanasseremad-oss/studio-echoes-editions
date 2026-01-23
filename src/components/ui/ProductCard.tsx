@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { Product } from '@/data/products';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface ProductCardProps {
   product: Product;
@@ -8,6 +9,7 @@ interface ProductCardProps {
 }
 
 export const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
+  const { t, language } = useLanguage();
   const lowestPrice = Math.min(...product.variants.map(v => v.price));
   
   const formatPrice = (price: number) => {
@@ -16,6 +18,9 @@ export const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
       minimumFractionDigits: 0,
     }).format(price);
   };
+
+  const title = language === 'ar' ? product.titleAr : product.title;
+  const artistName = language === 'ar' ? product.artistNameAr : product.artistName;
 
   return (
     <motion.div
@@ -28,18 +33,18 @@ export const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
         <div className="product-card-image aspect-[3/4] mb-4">
           <img
             src={product.image}
-            alt={product.title}
+            alt={title}
             className="w-full h-full object-cover"
           />
         </div>
         
         <div className="space-y-1">
-          <h3 className="font-serif text-lg">{product.title}</h3>
-          <p className="text-sm text-muted-foreground">{product.artistName}</p>
+          <h3 className="font-display text-lg tracking-wide">{title}</h3>
+          <p className="text-sm text-muted-foreground">{artistName}</p>
           <div className="flex items-baseline justify-between pt-2">
-            <p className="text-sm">From {formatPrice(lowestPrice)} EGP</p>
+            <p className="text-sm">{t('product.from')} {formatPrice(lowestPrice)} EGP</p>
             <p className="text-xs text-muted-foreground">
-              Edition of {product.editionSize}
+              {t('product.edition')} {product.editionSize}
             </p>
           </div>
         </div>
