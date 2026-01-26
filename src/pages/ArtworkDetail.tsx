@@ -5,13 +5,13 @@ import { ArrowLeft, MessageCircle, Truck, Shield, FileText, User } from 'lucide-
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { getProductById, getArtistById, type ProductVariant } from '@/data/products';
-import { useCart } from '@/context/CartContext';
+import { useCartStore } from '@/stores/cartStore';
 
 const ArtworkDetail = () => {
   const { id } = useParams<{ id: string }>();
   const product = getProductById(id || '');
   const artist = product ? getArtistById(product.artistId) : null;
-  const { addToCart } = useCart();
+  const { addItem, setIsCartOpen } = useCartStore();
 
   const [selectedSize, setSelectedSize] = useState<'30×40' | '50×70' | '70×100'>('50×70');
   const [isFramed, setIsFramed] = useState(false);
@@ -48,9 +48,10 @@ const ArtworkDetail = () => {
   );
 
   const handleAddToCart = () => {
-    if (selectedVariant) {
-      addToCart(product, selectedVariant);
-    }
+    // Note: This page uses local product data. For full Shopify integration,
+    // this page should fetch product from Shopify API instead.
+    // For now, just open the cart drawer as a placeholder.
+    setIsCartOpen(true);
   };
 
   return (
