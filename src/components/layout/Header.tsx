@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingBag } from 'lucide-react';
+import { Menu, X, ShoppingBag, Search } from 'lucide-react';
 import { useCartStore } from '@/stores/cartStore';
 import { useLanguage } from '@/context/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -45,8 +45,8 @@ export const Header = () => {
             Olive Studios
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          {/* Desktop Navigation - Centered */}
+          <nav className="hidden lg:flex items-center justify-center flex-1 gap-8">
             {links.map((link) => (
               <Link
                 key={link.href}
@@ -70,6 +70,13 @@ export const Header = () => {
               className="text-sm tracking-wide text-stone hover:text-cream transition-colors uppercase"
             >
               {language === 'en' ? 'AR' : 'EN'}
+            </button>
+
+            <button
+              className="p-2 hover:bg-cream/10 rounded-sm transition-colors text-cream"
+              aria-label="Search"
+            >
+              <Search className="w-5 h-5" />
             </button>
 
             <button
