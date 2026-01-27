@@ -49,7 +49,7 @@ export const Header = () => {
               <Link
                 key={link.href}
                 to={link.href}
-                className={`text-sm tracking-wide uppercase transition-colors ${
+                className={`text-sm tracking-wide transition-colors link-underline ${
                   location.pathname === link.href 
                     ? 'text-cream' 
                     : 'text-stone hover:text-cream'
