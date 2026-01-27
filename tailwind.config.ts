@@ -16,7 +16,8 @@ export default {
       fontFamily: {
         display: ['Jost', 'Futura', 'system-ui', 'sans-serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        arabic: ['IBM Plex Sans Arabic', 'Inter', 'sans-serif'],
+        arabic: ['Readex Pro', 'Inter', 'sans-serif'],
+        'arabic-display': ['Tajawal', 'Jost', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
