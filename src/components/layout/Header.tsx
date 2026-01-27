@@ -41,8 +41,8 @@ export const Header = () => {
             to="/" 
             className="flex items-center gap-3 font-display text-xl md:text-2xl tracking-wider text-cream"
           >
-            <img src={oliveLogo} alt="Olive Studios" className="h-8 md:h-10 w-auto" />
-            olive studios
+            <img src={oliveLogo} alt="Olive Studios" className="h-12 md:h-14 w-auto" />
+            Olive Studios
           </Link>
 
           {/* Desktop Navigation */}
