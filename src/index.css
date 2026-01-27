@@ -4,8 +4,8 @@
 
 /* Olive Studios - Mediterranean Luxury Design System */
 
-/* Typography: Futura Medium (via Jost as web-safe alternative), Inter, IBM Plex Sans Arabic */
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap');
+/* Typography: Futura Medium (via Jost as web-safe alternative), Inter, Readex Pro (Arabic companion to Inter), Tajawal (geometric Arabic display) */
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Readex+Pro:wght@300;400;500;600&family=Tajawal:wght@400;500;700&display=swap');
 
 @layer base {
   :root {
@@ -57,7 +57,8 @@
     /* Typography */
     --font-display: 'Jost', 'Futura', system-ui, sans-serif;
     --font-sans: 'Inter', system-ui, sans-serif;
-    --font-arabic: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
+    --font-arabic-display: 'Tajawal', 'Jost', system-ui, sans-serif;
+    --font-arabic: 'Readex Pro', 'Inter', system-ui, sans-serif;
     
     /* Spacing for editorial layouts */
     --section-spacing: 6rem;
@@ -134,7 +135,8 @@
   }
 
   [dir="rtl"] .font-display {
-    font-family: var(--font-arabic);
+    font-family: var(--font-arabic-display);
+    font-weight: 500;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -148,9 +150,9 @@
   [dir="rtl"] h4, 
   [dir="rtl"] h5, 
   [dir="rtl"] h6 {
-    font-family: var(--font-arabic);
-    @apply tracking-normal;
-    font-size: 1.05em;
+    font-family: var(--font-arabic-display);
+    @apply tracking-wide;
+    font-weight: 500;
   }
 
   /* Luxury link underline animation */
@@ -179,9 +181,13 @@
     @apply tracking-wider;
   }
 
-  /* Arabic font class */
   .font-arabic {
     font-family: var(--font-arabic);
+  }
+
+  .font-arabic-display {
+    font-family: var(--font-arabic-display);
+    font-weight: 500;
   }
 
   /* Editorial section spacing */
@@ -200,8 +206,9 @@
   }
 
   [dir="rtl"] .btn-gallery {
-    @apply tracking-normal;
-    font-family: var(--font-arabic);
+    @apply tracking-wide;
+    font-family: var(--font-arabic-display);
+    font-weight: 500;
   }
 
   .btn-gallery-primary {
@@ -255,7 +262,7 @@
 
   [dir="rtl"] .tracking-museum,
   [dir="rtl"] .tracking-ultra {
-    letter-spacing: 0;
+    letter-spacing: 0.05em;
   }
 
   /* Subtle hover transition for cards */
