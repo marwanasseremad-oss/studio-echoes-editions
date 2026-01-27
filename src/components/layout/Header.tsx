@@ -39,9 +39,9 @@ export const Header = () => {
           {/* Logo */}
           <Link 
             to="/" 
-            className="flex items-center gap-3 font-display text-xl md:text-2xl tracking-wider text-cream"
+            className="flex items-center gap-1.5 font-display text-xl md:text-2xl tracking-wider text-cream"
           >
-            <img src={oliveLogo} alt="Olive Studios" className="h-12 md:h-14 w-auto" />
+            <img src={oliveLogo} alt="Olive Studios" className="h-[4.5rem] md:h-[5.25rem] w-auto" />
             Olive Studios
           </Link>
 
