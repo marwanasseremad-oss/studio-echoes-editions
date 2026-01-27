@@ -4,6 +4,7 @@ import { Menu, X, ShoppingBag } from 'lucide-react';
 import { useCartStore } from '@/stores/cartStore';
 import { useLanguage } from '@/context/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
+import oliveLogo from '@/assets/olive-logo.png';
 
 const navLinks = {
   en: [
@@ -38,9 +39,10 @@ export const Header = () => {
           {/* Logo */}
           <Link 
             to="/" 
-            className="font-display text-xl md:text-2xl tracking-wider text-cream"
+            className="flex items-center gap-3 font-display text-xl md:text-2xl tracking-wider text-cream"
           >
-            OLIVE STUDIOS
+            <img src={oliveLogo} alt="Olive Studios" className="h-8 md:h-10 w-auto" />
+            olive studios
           </Link>
 
           {/* Desktop Navigation */}
