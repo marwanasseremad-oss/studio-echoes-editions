@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Instagram } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import oliveLogo from '@/assets/olive-logo.png';
 
 export const Footer = () => {
   const { t } = useLanguage();
@@ -11,8 +12,9 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/" className="font-display text-2xl tracking-museum uppercase">
-              Olive Studios
+            <Link to="/" className="flex flex-col items-start gap-2">
+              <img src={oliveLogo} alt="Olive Studios" className="h-16 w-auto" />
+              <span className="font-display text-2xl tracking-museum">Olive Studios</span>
             </Link>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
               {t('footer.desc')}
