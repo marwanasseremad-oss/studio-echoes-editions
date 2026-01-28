@@ -177,8 +177,8 @@ export const Header = () => {
             <span style={{ fontFamily: "'Jost', 'Futura', system-ui, sans-serif" }}>Olive Studios</span>
           </Link>
 
-          {/* Desktop Navigation - Centered */}
-          <nav className="hidden lg:flex items-center justify-center flex-1 gap-8">
+          {/* Desktop Navigation - Absolutely Centered */}
+          <nav className="hidden lg:flex items-center justify-center gap-8 absolute left-1/2 -translate-x-1/2">
             {links.map((link) => (
               link.dropdown ? (
                 <div
