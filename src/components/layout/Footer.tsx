@@ -9,17 +9,17 @@ export const Footer = () => {
   return (
     <footer className="border-t border-border bg-primary text-primary-foreground">
       <div className="gallery-container section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-12 lg:gap-16 text-center lg:text-left">
           {/* Brand */}
-          <div className="lg:col-span-1">
+          <div>
             <Link to="/">
-              <img src={oliveLogo} alt="Olive Studios" className="h-48 w-auto invert" />
+              <img src={oliveLogo} alt="Olive Studios" className="h-48 w-auto invert mx-auto lg:mx-0" />
             </Link>
           </div>
 
           {/* Shop */}
           <div>
-            <h4 className="font-display text-lg tracking-wide uppercase mb-4">{t('footer.shop')}</h4>
+            <h4 className="font-display text-lg tracking-wide capitalize mb-4">{t('footer.shop')}</h4>
             <nav className="flex flex-col gap-3">
               <Link to="/collection" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
                 {t('nav.collection')}
@@ -35,7 +35,7 @@ export const Footer = () => {
 
           {/* Information */}
           <div>
-            <h4 className="font-display text-lg tracking-wide uppercase mb-4">{t('footer.information')}</h4>
+            <h4 className="font-display text-lg tracking-wide capitalize mb-4">{t('footer.information')}</h4>
             <nav className="flex flex-col gap-3">
               <Link to="/about" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
                 {t('nav.about')}
@@ -54,13 +54,13 @@ export const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="font-display text-lg tracking-wide uppercase mb-4">{t('footer.connect')}</h4>
+            <h4 className="font-display text-lg tracking-wide capitalize mb-4">{t('footer.connect')}</h4>
             <div className="flex flex-col gap-3">
               <a 
                 href="https://instagram.com/olivestudios" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                className="inline-flex items-center justify-center lg:justify-start gap-2 text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
               >
                 <Instagram className="w-4 h-4" />
                 @olivestudios
