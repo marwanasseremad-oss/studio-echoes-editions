@@ -178,7 +178,7 @@ const ArtworkDetail = () => {
                     <button
                       key={size}
                       onClick={() => setSelectedSize(size)}
-                      className={`px-6 py-3 border transition-colors ${
+                      className={`px-6 py-3 border rounded-[15px] transition-colors ${
                         selectedSize === size
                           ? 'bg-primary text-primary-foreground border-primary'
                           : 'border-border hover:border-primary'
@@ -196,7 +196,7 @@ const ArtworkDetail = () => {
                 <div className="flex gap-3">
                   <button
                     onClick={() => setIsFramed(false)}
-                    className={`px-6 py-3 border transition-colors ${
+                    className={`px-6 py-3 border rounded-[15px] transition-colors ${
                       !isFramed
                         ? 'bg-primary text-primary-foreground border-primary'
                         : 'border-border hover:border-primary'
@@ -206,7 +206,7 @@ const ArtworkDetail = () => {
                   </button>
                   <button
                     onClick={() => setIsFramed(true)}
-                    className={`px-6 py-3 border transition-colors ${
+                    className={`px-6 py-3 border rounded-[15px] transition-colors ${
                       isFramed
                         ? 'bg-primary text-primary-foreground border-primary'
                         : 'border-border hover:border-primary'
