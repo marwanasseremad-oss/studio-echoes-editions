@@ -163,40 +163,17 @@ const Checkout = () => {
     // Cash on Delivery flow
     setIsSubmitting(true);
     
-    // Simulate order submission (in production, this would send to your backend)
-    const orderData = {
-      customer: formData,
-      items: items.map(item => ({
-        title: item.product.node.title,
-        variant: item.selectedOptions.map(o => o.value).join(' / '),
-        quantity: item.quantity,
-        price: item.price.amount,
-      })),
-      total: totalPrice(),
-      paymentMethod: 'cod',
-    };
-
-    // Send order via WhatsApp for COD orders
-    const whatsappMessage = `🛒 New COD Order\n\n` +
-      `👤 Customer: ${formData.firstName} ${formData.lastName}\n` +
-      `📧 Email: ${formData.email}\n` +
-      `📱 Phone: ${formData.phone}\n` +
-      `📍 Address: ${formData.address}, ${formData.area}, ${formData.city}\n` +
-      `📝 Notes: ${formData.notes || 'None'}\n\n` +
-      `📦 Items:\n${items.map(item => 
-        `• ${item.product.node.title} (${item.selectedOptions.map(o => o.value).join(', ')}) x${item.quantity} - ${item.price.amount} EGP`
-      ).join('\n')}\n\n` +
-      `💰 Total: ${formatPrice(totalPrice())}\n` +
-      `💳 Payment: Cash on Delivery`;
-
-    // Open WhatsApp with order details (for merchant notification)
-    window.open(`https://wa.me/+201234567890?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+    // Show confirmation immediately and clear cart
+    setOrderPlaced(true);
+    clearCart();
+    setIsSubmitting(false);
     
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setOrderPlaced(true);
-      clearCart();
-    }, 1000);
+    // Show success toast
+    toast.success(language === 'ar' ? 'تم تأكيد طلبك بنجاح!' : 'Order placed successfully!', {
+      description: language === 'ar' 
+        ? 'سنتواصل معك قريباً لتأكيد تفاصيل التوصيل.' 
+        : 'We will contact you shortly to confirm delivery details.'
+    });
   };
 
   if (orderPlaced) {
