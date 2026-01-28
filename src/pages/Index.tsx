@@ -21,15 +21,15 @@ const Index = () => {
             alt="Mediterranean landscape"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
+          <div className="absolute inset-0 bg-background/60" />
         </div>
         
-        <div className="relative gallery-container">
+        <div className="relative gallery-container flex items-center justify-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-2xl"
+            className="max-w-2xl text-center"
           >
             <span className="text-xs tracking-ultra uppercase text-accent mb-4 block">
               {t('hero.tagline')}
@@ -37,11 +37,11 @@ const Index = () => {
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 tracking-wide">
               {t('hero.title')}
             </h1>
-            <p className="text-lg text-muted-foreground mb-8 max-w-lg">
+            <p className="text-lg text-muted-foreground mb-8 max-w-lg mx-auto">
               {t('hero.subtitle')}
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="btn-gallery-primary">
                 <Link to="/collection">
                   {t('hero.cta.shop')}
