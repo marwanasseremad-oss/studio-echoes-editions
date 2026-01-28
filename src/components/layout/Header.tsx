@@ -200,25 +200,31 @@ export const Header = () => {
                   
                   <AnimatePresence>
                     {openDropdown === link.label && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 8 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 mt-2 min-w-[180px] bg-card border border-border rounded-sm shadow-lg z-50"
-                      >
-                        <div className="py-2">
-                          {link.dropdown.map((item, index) => (
-                            <Link
-                              key={item.href + item.label + index}
-                              to={item.href}
-                              className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-                            >
-                              {item.label}
-                            </Link>
-                          ))}
-                        </div>
-                      </motion.div>
+                      <>
+                        {/* Full-width backdrop */}
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="fixed left-0 right-0 top-14 md:top-20 h-auto z-40 bg-background/70 backdrop-blur-xl border-b border-border/50"
+                          style={{ width: '100vw' }}
+                        >
+                          <div className="gallery-container py-8">
+                            <div className="flex flex-wrap gap-x-12 gap-y-4 justify-center">
+                              {link.dropdown.map((item, index) => (
+                                <Link
+                                  key={item.href + item.label + index}
+                                  to={item.href}
+                                  className="text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors py-2"
+                                >
+                                  {item.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        </motion.div>
+                      </>
                     )}
                   </AnimatePresence>
                 </div>
