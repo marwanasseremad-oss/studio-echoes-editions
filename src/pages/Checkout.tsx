@@ -27,7 +27,7 @@ const Checkout = () => {
   const { language } = useLanguage();
   const { items, totalPrice, totalItems, getCheckoutUrl, clearCart, isLoading } = useCartStore();
   
-  const [paymentMethod, setPaymentMethod] = useState<'shopify' | 'cod'>('cod');
+  const [paymentMethod, setPaymentMethod] = useState<'shopify' | 'shopify-shipping' | 'cod'>('cod');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [formData, setFormData] = useState<ShippingForm>({
@@ -56,14 +56,16 @@ const Checkout = () => {
       notes: 'Delivery Notes (Optional)',
       notesPlaceholder: 'Any special instructions for delivery...',
       paymentMethod: 'Payment Method',
-      shopifyPayment: 'Pay Online',
-      shopifyPaymentDesc: 'Credit/Debit Card via Secure Checkout',
+      shopifyPayment: 'Pay Online (Cairo)',
+      shopifyPaymentDesc: 'Credit/Debit Card • Free Shipping in Cairo',
+      shopifyShipping: 'Pay Online (Governorate Shipping)',
+      shopifyShippingDesc: 'Credit/Debit Card • Cairo, Giza, Alexandria rates',
       cod: 'Cash on Delivery',
-      codDesc: 'Pay when you receive your order',
+      codDesc: 'Pay when you receive your order (Cairo only)',
       orderSummary: 'Order Summary',
       subtotal: 'Subtotal',
       shipping: 'Shipping',
-      freeShipping: 'Free (Greater Cairo)',
+      freeShipping: 'Calculated at checkout',
       total: 'Total',
       placeOrder: 'Place Order',
       proceedToPayment: 'Proceed to Payment',
@@ -90,14 +92,16 @@ const Checkout = () => {
       notes: 'ملاحظات التوصيل (اختياري)',
       notesPlaceholder: 'أي تعليمات خاصة للتوصيل...',
       paymentMethod: 'طريقة الدفع',
-      shopifyPayment: 'الدفع أونلاين',
-      shopifyPaymentDesc: 'بطاقة ائتمان / خصم عبر الدفع الآمن',
+      shopifyPayment: 'الدفع أونلاين (القاهرة)',
+      shopifyPaymentDesc: 'بطاقة ائتمان / خصم • شحن مجاني في القاهرة',
+      shopifyShipping: 'الدفع أونلاين (شحن المحافظات)',
+      shopifyShippingDesc: 'بطاقة ائتمان / خصم • أسعار القاهرة، الجيزة، الإسكندرية',
       cod: 'الدفع عند الاستلام',
-      codDesc: 'ادفع عند استلام طلبك',
+      codDesc: 'ادفع عند استلام طلبك (القاهرة فقط)',
       orderSummary: 'ملخص الطلب',
       subtotal: 'المجموع الفرعي',
       shipping: 'الشحن',
-      freeShipping: 'مجاني (القاهرة الكبرى)',
+      freeShipping: 'يُحسب عند الدفع',
       total: 'الإجمالي',
       placeOrder: 'تأكيد الطلب',
       proceedToPayment: 'متابعة الدفع',
@@ -152,7 +156,7 @@ const Checkout = () => {
     
     if (!validateForm()) return;
 
-    if (paymentMethod === 'shopify') {
+    if (paymentMethod === 'shopify' || paymentMethod === 'shopify-shipping') {
       const checkoutUrl = getCheckoutUrl();
       if (checkoutUrl) {
         window.open(checkoutUrl, '_blank');
@@ -325,7 +329,7 @@ const Checkout = () => {
               <div className="bg-card rounded-lg p-6 border border-border">
                 <h2 className="font-display text-xl mb-6">{t.paymentMethod}</h2>
                 
-                <RadioGroup value={paymentMethod} onValueChange={(val) => setPaymentMethod(val as 'shopify' | 'cod')}>
+                <RadioGroup value={paymentMethod} onValueChange={(val) => setPaymentMethod(val as 'shopify' | 'shopify-shipping' | 'cod')}>
                   <div className="space-y-4">
                     <label 
                       className={`flex items-start gap-4 p-4 rounded-lg border cursor-pointer transition-colors ${
@@ -354,6 +358,21 @@ const Checkout = () => {
                           <span className="font-medium">{t.shopifyPayment}</span>
                         </div>
                         <p className="text-sm text-muted-foreground mt-1">{t.shopifyPaymentDesc}</p>
+                      </div>
+                    </label>
+
+                    <label 
+                      className={`flex items-start gap-4 p-4 rounded-lg border cursor-pointer transition-colors ${
+                        paymentMethod === 'shopify-shipping' ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'
+                      }`}
+                    >
+                      <RadioGroupItem value="shopify-shipping" id="shopify-shipping" className="mt-1" />
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2">
+                          <CreditCard className="w-5 h-5" />
+                          <span className="font-medium">{t.shopifyShipping}</span>
+                        </div>
+                        <p className="text-sm text-muted-foreground mt-1">{t.shopifyShippingDesc}</p>
                       </div>
                     </label>
                   </div>
@@ -414,7 +433,7 @@ const Checkout = () => {
                 >
                   {isSubmitting ? (
                     <Loader2 className="w-4 h-4 animate-spin" />
-                  ) : paymentMethod === 'shopify' ? (
+                  ) : paymentMethod === 'shopify' || paymentMethod === 'shopify-shipping' ? (
                     <>
                       <ExternalLink className="w-4 h-4 mr-2" />
                       {t.proceedToPayment}
