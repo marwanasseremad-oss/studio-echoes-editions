@@ -322,7 +322,7 @@ export const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden border-t border-cream/10 bg-olive-black"
+            className="lg:hidden border-t border-cream/10 bg-olive-black/95 backdrop-blur-md"
           >
             <nav className="gallery-container py-6 flex flex-col gap-4">
               {links.map((link) => (
