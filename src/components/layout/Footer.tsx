@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Instagram } from 'lucide-react';
+import { Instagram, MessageCircle } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { Button } from '@/components/ui/button';
 import oliveLogo from '@/assets/olive-logo.png';
@@ -89,15 +89,26 @@ export const Footer = () => {
                 →
               </button>
             </form>
-            <a 
-              href="https://www.instagram.com/_olivestudios/?utm_source=ig_web_button_share_sheet" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex text-primary-foreground/60 hover:text-primary-foreground transition-colors"
-              aria-label="Follow us on Instagram"
-            >
-              <Instagram className="w-5 h-5" />
-            </a>
+            <div className="flex gap-4">
+              <a 
+                href="https://wa.me/+201234567890" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+                aria-label="Contact us on WhatsApp"
+              >
+                <MessageCircle className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://www.instagram.com/_olivestudios/?utm_source=ig_web_button_share_sheet" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+                aria-label="Follow us on Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+            </div>
           </div>
         </div>
 
