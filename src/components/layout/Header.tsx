@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingBag, Search, ChevronDown } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Menu, X, ShoppingBag, Search } from 'lucide-react';
 import { useCartStore } from '@/stores/cartStore';
 import { useLanguage } from '@/context/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
+import { artists } from '@/data/products';
 import oliveLogo from '@/assets/olive-logo.png';
+import { ChevronDown } from 'lucide-react';
 
 interface DropdownItem {
   href: string;
@@ -17,61 +19,84 @@ interface NavLink {
   dropdown?: DropdownItem[];
 }
 
-const navLinks: Record<'en' | 'ar', NavLink[]> = {
-  en: [
-    { 
-      label: 'Collection',
-      dropdown: [
-        { href: '/collection', label: 'Featured' },
-        { href: '/collection?filter=themes', label: 'Themes' },
-        { href: '/collection?filter=picks', label: 'Our Picks' },
-      ]
-    },
-    { href: '/artists', label: 'Artists' },
-    { href: '/print-quality', label: 'Print Quality' },
-    { href: '/about', label: 'About' },
-    { 
-      label: 'Discover',
-      dropdown: [
-        { href: '/corporate', label: 'Bespoke Inquiries' },
-        { href: '/faq', label: 'FAQs' },
-        { href: '/corporate', label: 'Corporate' },
-      ]
-    },
-  ],
-  ar: [
-    { 
-      label: 'المجموعة',
-      dropdown: [
-        { href: '/collection', label: 'المميزة' },
-        { href: '/collection?filter=themes', label: 'المواضيع' },
-        { href: '/collection?filter=picks', label: 'اختياراتنا' },
-      ]
-    },
-    { href: '/artists', label: 'الفنانون' },
-    { href: '/print-quality', label: 'جودة الطباعة' },
-    { href: '/about', label: 'من نحن' },
-    { 
-      label: 'اكتشف',
-      dropdown: [
-        { href: '/corporate', label: 'طلبات مخصصة' },
-        { href: '/faq', label: 'الأسئلة الشائعة' },
-        { href: '/corporate', label: 'الشركات' },
-      ]
-    },
-  ]
+const getNavLinks = (language: 'en' | 'ar'): NavLink[] => {
+  const artistItems = artists.map(artist => ({
+    href: `/artists/${artist.id}`,
+    label: language === 'en' ? artist.name : artist.nameAr,
+  }));
+
+  if (language === 'en') {
+    return [
+      { 
+        label: 'Collection',
+        dropdown: [
+          { href: '/collection', label: 'Featured' },
+          { href: '/collection?filter=themes', label: 'Themes' },
+          { href: '/collection?filter=picks', label: 'Our Picks' },
+        ]
+      },
+      { 
+        label: 'Artists',
+        dropdown: [
+          { href: '/artists', label: 'All Artists' },
+          ...artistItems,
+        ]
+      },
+      { href: '/about', label: 'About' },
+      { 
+        label: 'Discover',
+        dropdown: [
+          { href: '/corporate', label: 'Bespoke Inquiries' },
+          { href: '/faq', label: 'FAQs' },
+          { href: '/corporate', label: 'Corporate' },
+          { href: '/print-quality', label: 'Print Quality' },
+        ]
+      },
+    ];
+  } else {
+    return [
+      { 
+        label: 'المجموعة',
+        dropdown: [
+          { href: '/collection', label: 'المميزة' },
+          { href: '/collection?filter=themes', label: 'المواضيع' },
+          { href: '/collection?filter=picks', label: 'اختياراتنا' },
+        ]
+      },
+      { 
+        label: 'الفنانون',
+        dropdown: [
+          { href: '/artists', label: 'جميع الفنانين' },
+          ...artistItems,
+        ]
+      },
+      { href: '/about', label: 'من نحن' },
+      { 
+        label: 'اكتشف',
+        dropdown: [
+          { href: '/corporate', label: 'طلبات مخصصة' },
+          { href: '/faq', label: 'الأسئلة الشائعة' },
+          { href: '/corporate', label: 'الشركات' },
+          { href: '/print-quality', label: 'جودة الطباعة' },
+        ]
+      },
+    ];
+  }
 };
 
 export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(null);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const { totalItems, setIsCartOpen } = useCartStore();
   const { language, setLanguage } = useLanguage();
   const location = useLocation();
+  const navigate = useNavigate();
   const count = totalItems();
 
-  const links = navLinks[language];
+  const links = getNavLinks(language);
 
   const handleMouseEnter = (label: string) => {
     setOpenDropdown(label);
@@ -83,6 +108,22 @@ export const Header = () => {
 
   const toggleMobileDropdown = (label: string) => {
     setMobileOpenDropdown(mobileOpenDropdown === label ? null : label);
+  };
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/collection?search=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchQuery('');
+      setIsSearchOpen(false);
+    }
+  };
+
+  const handleSearchKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      setIsSearchOpen(false);
+      setSearchQuery('');
+    }
   };
 
   return (
@@ -129,9 +170,9 @@ export const Header = () => {
                         className="absolute top-full left-0 mt-2 min-w-[180px] bg-card border border-border rounded-sm shadow-lg z-50"
                       >
                         <div className="py-2">
-                          {link.dropdown.map((item) => (
+                          {link.dropdown.map((item, index) => (
                             <Link
-                              key={item.href + item.label}
+                              key={item.href + item.label + index}
                               to={item.href}
                               className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
                             >
@@ -164,17 +205,52 @@ export const Header = () => {
             {/* Language Toggle */}
             <button
               onClick={() => setLanguage(language === 'en' ? 'ar' : 'en')}
-              className="text-sm tracking-wide text-stone hover:text-cream transition-colors uppercase"
+              className="font-display text-sm tracking-wide text-cream hover:text-cream/80 transition-colors"
             >
               {language === 'en' ? 'AR' : 'EN'}
             </button>
 
-            <button
-              className="p-2 hover:bg-cream/10 rounded-sm transition-colors text-cream"
-              aria-label="Search"
-            >
-              <Search className="w-5 h-5" />
-            </button>
+            {/* Search */}
+            <AnimatePresence>
+              {isSearchOpen ? (
+                <motion.form
+                  initial={{ width: 0, opacity: 0 }}
+                  animate={{ width: 200, opacity: 1 }}
+                  exit={{ width: 0, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  onSubmit={handleSearchSubmit}
+                  className="flex items-center overflow-hidden"
+                >
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    onKeyDown={handleSearchKeyDown}
+                    placeholder={language === 'en' ? 'Search...' : 'بحث...'}
+                    autoFocus
+                    className="w-full bg-transparent border-b border-cream/50 text-cream placeholder:text-cream/50 text-sm py-1 px-2 focus:outline-none focus:border-cream transition-colors"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsSearchOpen(false);
+                      setSearchQuery('');
+                    }}
+                    className="p-1 text-cream hover:text-cream/80 transition-colors"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                </motion.form>
+              ) : (
+                <button
+                  onClick={() => setIsSearchOpen(true)}
+                  className="p-2 hover:bg-cream/10 rounded-sm transition-colors text-cream"
+                  aria-label="Search"
+                >
+                  <Search className="w-5 h-5" />
+                </button>
+              )}
+            </AnimatePresence>
 
             <button
               onClick={() => setIsCartOpen(true)}
@@ -232,9 +308,9 @@ export const Header = () => {
                           className="overflow-hidden"
                         >
                           <div className="pl-4 py-2 flex flex-col gap-2">
-                            {link.dropdown.map((item) => (
+                            {link.dropdown.map((item, index) => (
                               <Link
-                                key={item.href + item.label}
+                                key={item.href + item.label + index}
                                 to={item.href}
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 className="text-base text-stone hover:text-cream transition-colors py-1"
