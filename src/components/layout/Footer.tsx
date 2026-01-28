@@ -9,18 +9,14 @@ export const Footer = () => {
   return (
     <footer className="border-t border-border bg-card">
       <div className="gallery-container section-padding">
-        {/* Logo centered at top */}
-        <div className="flex justify-center mb-12">
-          <Link to="/" className="flex flex-col items-center gap-2">
-            <img src={oliveLogo} alt="Olive Studios" className="h-32 w-auto object-contain" />
-            <span className="font-display text-2xl tracking-museum">Olive Studios</span>
-          </Link>
-        </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-          {/* Description */}
+          {/* Brand */}
           <div className="lg:col-span-1">
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <Link to="/" className="flex flex-col items-start gap-2">
+              <img src={oliveLogo} alt="Olive Studios" className="h-72 w-auto" />
+              <span className="font-display text-2xl tracking-museum">Olive Studios</span>
+            </Link>
+            <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
               {t('footer.desc')}
             </p>
           </div>
