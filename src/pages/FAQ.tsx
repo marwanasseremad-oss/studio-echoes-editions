@@ -101,7 +101,7 @@ const FAQ = () => {
   return (
     <div className="pt-24">
       {/* Header */}
-      <section className="py-8 md:py-12">
+      <section className="py-12 md:py-16">
         <div className="gallery-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
