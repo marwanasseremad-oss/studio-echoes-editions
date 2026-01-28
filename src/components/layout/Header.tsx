@@ -25,17 +25,32 @@ const getNavLinks = (language: 'en' | 'ar'): NavLink[] => {
       { 
         label: 'Collection',
         dropdown: [
+          // Featured
           { href: '/collection', label: 'Featured' },
-          { href: '/collection?filter=themes', label: 'Themes' },
-          { href: '/collection?filter=picks', label: 'Our Picks' },
+          { href: '/collection?filter=new-arrivals', label: 'New Arrivals' },
+          { href: '/collection?filter=bestsellers', label: 'Best Sellers' },
+          // Themes
+          { href: '/collection?filter=architecture', label: 'Architecture' },
+          { href: '/collection?filter=history', label: 'History' },
+          { href: '/collection?filter=nature', label: 'Nature' },
+          { href: '/collection?filter=portrait', label: 'Portrait' },
+          // Our Picks
+          { href: '/artwork/desert-curve-i', label: 'Desert Curve I' },
+          { href: '/artwork/geometry-of-faith', label: 'Geometry of Faith' },
+          { href: '/artwork/mediterranean-stillness', label: 'Mediterranean Stillness' },
         ]
       },
       { 
         label: 'Artists',
         dropdown: [
-          { href: '/artists', label: 'All Artists' },
-          { href: '/collection?filter=bestsellers', label: 'Best Sellers' },
-          { href: '/collection?filter=artist-of-the-month', label: 'Artist of the Month' },
+          { href: '/artists/karim-hassan', label: 'Karim Hassan' },
+          { href: '/artists/layla-mansour', label: 'Layla Mansour' },
+          { href: '/artists/omar-farouk', label: 'Omar Farouk' },
+          { href: '/artists', label: 'View All' },
+          // Editor's Choice
+          { href: '/artwork/shadow-geometry', label: 'Shadow Geometry' },
+          { href: '/artwork/olive-grove-light', label: 'Olive Grove Light' },
+          { href: '/artwork/columns-of-time', label: 'Columns of Time' },
         ]
       },
       { href: '/about', label: 'About' },
@@ -54,17 +69,32 @@ const getNavLinks = (language: 'en' | 'ar'): NavLink[] => {
       { 
         label: 'المجموعة',
         dropdown: [
+          // المميزة
           { href: '/collection', label: 'المميزة' },
-          { href: '/collection?filter=themes', label: 'المواضيع' },
-          { href: '/collection?filter=picks', label: 'اختياراتنا' },
+          { href: '/collection?filter=new-arrivals', label: 'وصل حديثاً' },
+          { href: '/collection?filter=bestsellers', label: 'الأكثر مبيعاً' },
+          // المواضيع
+          { href: '/collection?filter=architecture', label: 'العمارة' },
+          { href: '/collection?filter=history', label: 'التاريخ' },
+          { href: '/collection?filter=nature', label: 'الطبيعة' },
+          { href: '/collection?filter=portrait', label: 'البورتريه' },
+          // اختياراتنا
+          { href: '/artwork/desert-curve-i', label: 'منحنى الصحراء I' },
+          { href: '/artwork/geometry-of-faith', label: 'هندسة الإيمان' },
+          { href: '/artwork/mediterranean-stillness', label: 'سكون البحر المتوسط' },
         ]
       },
       { 
         label: 'الفنانون',
         dropdown: [
-          { href: '/artists', label: 'جميع الفنانين' },
-          { href: '/collection?filter=bestsellers', label: 'الأكثر مبيعاً' },
-          { href: '/collection?filter=artist-of-the-month', label: 'فنان الشهر' },
+          { href: '/artists/karim-hassan', label: 'كريم حسن' },
+          { href: '/artists/layla-mansour', label: 'ليلى منصور' },
+          { href: '/artists/omar-farouk', label: 'عمر فاروق' },
+          { href: '/artists', label: 'عرض الكل' },
+          // اختيار المحرر
+          { href: '/artwork/shadow-geometry', label: 'هندسة الظلال' },
+          { href: '/artwork/olive-grove-light', label: 'ضوء بستان الزيتون' },
+          { href: '/artwork/columns-of-time', label: 'أعمدة الزمن' },
         ]
       },
       { href: '/about', label: 'من نحن' },
