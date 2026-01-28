@@ -86,7 +86,7 @@ const getNavLinks = (language: 'en' | 'ar'): NavLink[] => {
           {
             title: 'Services',
             items: [
-              { href: '/corporate', label: 'Bespoke Inquiries' },
+              { href: '/bespoke', label: 'Bespoke Inquiries' },
               { href: '/corporate', label: 'Corporate' },
             ]
           },
@@ -161,7 +161,7 @@ const getNavLinks = (language: 'en' | 'ar'): NavLink[] => {
           {
             title: 'الخدمات',
             items: [
-              { href: '/corporate', label: 'طلبات مخصصة' },
+              { href: '/bespoke', label: 'طلبات مخصصة' },
               { href: '/corporate', label: 'الشركات' },
             ]
           },
