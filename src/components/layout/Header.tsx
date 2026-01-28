@@ -8,15 +8,20 @@ import { artists } from '@/data/products';
 import oliveLogo from '@/assets/olive-logo.png';
 import { ChevronDown } from 'lucide-react';
 
-interface DropdownItem {
+interface DropdownSubItem {
   href: string;
   label: string;
+}
+
+interface DropdownSection {
+  title: string;
+  items: DropdownSubItem[];
 }
 
 interface NavLink {
   href?: string;
   label: string;
-  dropdown?: DropdownItem[];
+  dropdown?: DropdownSection[];
 }
 
 const getNavLinks = (language: 'en' | 'ar'): NavLink[] => {
@@ -25,42 +30,73 @@ const getNavLinks = (language: 'en' | 'ar'): NavLink[] => {
       { 
         label: 'Collection',
         dropdown: [
-          // Featured
-          { href: '/collection', label: 'Featured' },
-          { href: '/collection?filter=new-arrivals', label: 'New Arrivals' },
-          { href: '/collection?filter=bestsellers', label: 'Best Sellers' },
-          // Themes
-          { href: '/collection?filter=architecture', label: 'Architecture' },
-          { href: '/collection?filter=history', label: 'History' },
-          { href: '/collection?filter=nature', label: 'Nature' },
-          { href: '/collection?filter=portrait', label: 'Portrait' },
-          // Our Picks
-          { href: '/artwork/desert-curve-i', label: 'Desert Curve I' },
-          { href: '/artwork/geometry-of-faith', label: 'Geometry of Faith' },
-          { href: '/artwork/mediterranean-stillness', label: 'Mediterranean Stillness' },
+          {
+            title: 'Featured',
+            items: [
+              { href: '/collection', label: 'All Featured' },
+              { href: '/collection?filter=new-arrivals', label: 'New Arrivals' },
+              { href: '/collection?filter=bestsellers', label: 'Best Sellers' },
+            ]
+          },
+          {
+            title: 'Themes',
+            items: [
+              { href: '/collection?filter=architecture', label: 'Architecture' },
+              { href: '/collection?filter=history', label: 'History' },
+              { href: '/collection?filter=nature', label: 'Nature' },
+              { href: '/collection?filter=portrait', label: 'Portrait' },
+            ]
+          },
+          {
+            title: 'Our Picks',
+            items: [
+              { href: '/artwork/desert-curve-i', label: 'Desert Curve I' },
+              { href: '/artwork/geometry-of-faith', label: 'Geometry of Faith' },
+              { href: '/artwork/mediterranean-stillness', label: 'Mediterranean Stillness' },
+            ]
+          },
         ]
       },
       { 
         label: 'Artists',
         dropdown: [
-          { href: '/artists/karim-hassan', label: 'Karim Hassan' },
-          { href: '/artists/layla-mansour', label: 'Layla Mansour' },
-          { href: '/artists/omar-farouk', label: 'Omar Farouk' },
-          { href: '/artists', label: 'View All' },
-          // Editor's Choice
-          { href: '/artwork/shadow-geometry', label: 'Shadow Geometry' },
-          { href: '/artwork/olive-grove-light', label: 'Olive Grove Light' },
-          { href: '/artwork/columns-of-time', label: 'Columns of Time' },
+          {
+            title: 'All Artists',
+            items: [
+              { href: '/artists/karim-hassan', label: 'Karim Hassan' },
+              { href: '/artists/layla-mansour', label: 'Layla Mansour' },
+              { href: '/artists/omar-farouk', label: 'Omar Farouk' },
+              { href: '/artists', label: 'View All →' },
+            ]
+          },
+          {
+            title: "Editor's Choice",
+            items: [
+              { href: '/artwork/shadow-geometry', label: 'Shadow Geometry' },
+              { href: '/artwork/olive-grove-light', label: 'Olive Grove Light' },
+              { href: '/artwork/columns-of-time', label: 'Columns of Time' },
+            ]
+          },
         ]
       },
       { href: '/about', label: 'About' },
       { 
         label: 'Discover',
         dropdown: [
-          { href: '/corporate', label: 'Bespoke Inquiries' },
-          { href: '/faq', label: 'FAQs' },
-          { href: '/corporate', label: 'Corporate' },
-          { href: '/print-quality', label: 'Print Quality' },
+          {
+            title: 'Services',
+            items: [
+              { href: '/corporate', label: 'Bespoke Inquiries' },
+              { href: '/corporate', label: 'Corporate' },
+            ]
+          },
+          {
+            title: 'Learn More',
+            items: [
+              { href: '/faq', label: 'FAQs' },
+              { href: '/print-quality', label: 'Print Quality' },
+            ]
+          },
         ]
       },
     ];
@@ -69,42 +105,73 @@ const getNavLinks = (language: 'en' | 'ar'): NavLink[] => {
       { 
         label: 'المجموعة',
         dropdown: [
-          // المميزة
-          { href: '/collection', label: 'المميزة' },
-          { href: '/collection?filter=new-arrivals', label: 'وصل حديثاً' },
-          { href: '/collection?filter=bestsellers', label: 'الأكثر مبيعاً' },
-          // المواضيع
-          { href: '/collection?filter=architecture', label: 'العمارة' },
-          { href: '/collection?filter=history', label: 'التاريخ' },
-          { href: '/collection?filter=nature', label: 'الطبيعة' },
-          { href: '/collection?filter=portrait', label: 'البورتريه' },
-          // اختياراتنا
-          { href: '/artwork/desert-curve-i', label: 'منحنى الصحراء I' },
-          { href: '/artwork/geometry-of-faith', label: 'هندسة الإيمان' },
-          { href: '/artwork/mediterranean-stillness', label: 'سكون البحر المتوسط' },
+          {
+            title: 'المميزة',
+            items: [
+              { href: '/collection', label: 'جميع المميزة' },
+              { href: '/collection?filter=new-arrivals', label: 'وصل حديثاً' },
+              { href: '/collection?filter=bestsellers', label: 'الأكثر مبيعاً' },
+            ]
+          },
+          {
+            title: 'المواضيع',
+            items: [
+              { href: '/collection?filter=architecture', label: 'العمارة' },
+              { href: '/collection?filter=history', label: 'التاريخ' },
+              { href: '/collection?filter=nature', label: 'الطبيعة' },
+              { href: '/collection?filter=portrait', label: 'البورتريه' },
+            ]
+          },
+          {
+            title: 'اختياراتنا',
+            items: [
+              { href: '/artwork/desert-curve-i', label: 'منحنى الصحراء I' },
+              { href: '/artwork/geometry-of-faith', label: 'هندسة الإيمان' },
+              { href: '/artwork/mediterranean-stillness', label: 'سكون البحر المتوسط' },
+            ]
+          },
         ]
       },
       { 
         label: 'الفنانون',
         dropdown: [
-          { href: '/artists/karim-hassan', label: 'كريم حسن' },
-          { href: '/artists/layla-mansour', label: 'ليلى منصور' },
-          { href: '/artists/omar-farouk', label: 'عمر فاروق' },
-          { href: '/artists', label: 'عرض الكل' },
-          // اختيار المحرر
-          { href: '/artwork/shadow-geometry', label: 'هندسة الظلال' },
-          { href: '/artwork/olive-grove-light', label: 'ضوء بستان الزيتون' },
-          { href: '/artwork/columns-of-time', label: 'أعمدة الزمن' },
+          {
+            title: 'جميع الفنانين',
+            items: [
+              { href: '/artists/karim-hassan', label: 'كريم حسن' },
+              { href: '/artists/layla-mansour', label: 'ليلى منصور' },
+              { href: '/artists/omar-farouk', label: 'عمر فاروق' },
+              { href: '/artists', label: 'عرض الكل ←' },
+            ]
+          },
+          {
+            title: 'اختيار المحرر',
+            items: [
+              { href: '/artwork/shadow-geometry', label: 'هندسة الظلال' },
+              { href: '/artwork/olive-grove-light', label: 'ضوء بستان الزيتون' },
+              { href: '/artwork/columns-of-time', label: 'أعمدة الزمن' },
+            ]
+          },
         ]
       },
       { href: '/about', label: 'من نحن' },
       { 
         label: 'اكتشف',
         dropdown: [
-          { href: '/corporate', label: 'طلبات مخصصة' },
-          { href: '/faq', label: 'الأسئلة الشائعة' },
-          { href: '/corporate', label: 'الشركات' },
-          { href: '/print-quality', label: 'جودة الطباعة' },
+          {
+            title: 'الخدمات',
+            items: [
+              { href: '/corporate', label: 'طلبات مخصصة' },
+              { href: '/corporate', label: 'الشركات' },
+            ]
+          },
+          {
+            title: 'اعرف المزيد',
+            items: [
+              { href: '/faq', label: 'الأسئلة الشائعة' },
+              { href: '/print-quality', label: 'جودة الطباعة' },
+            ]
+          },
         ]
       },
     ];
@@ -256,16 +323,25 @@ export const Header = () => {
                 onMouseLeave={() => setOpenDropdown(null)}
               >
                 <div className="gallery-container py-10">
-                  <div className="flex flex-wrap gap-x-16 gap-y-6 justify-center">
-                    {links.find(l => l.label === openDropdown)?.dropdown?.map((item, index) => (
-                      <Link
-                        key={item.href + item.label + index}
-                        to={item.href}
-                        onClick={() => setOpenDropdown(null)}
-                        className="text-sm tracking-widest capitalize text-cream hover:text-white transition-colors py-2 font-display"
-                      >
-                        {item.label}
-                      </Link>
+                  <div className="flex flex-wrap gap-x-16 gap-y-8 justify-center">
+                    {links.find(l => l.label === openDropdown)?.dropdown?.map((section, sectionIndex) => (
+                      <div key={section.title + sectionIndex} className="flex flex-col gap-3">
+                        <span className="text-xs tracking-widest uppercase text-cream/50 font-display">
+                          {section.title}
+                        </span>
+                        <div className="flex flex-col gap-2">
+                          {section.items.map((item, index) => (
+                            <Link
+                              key={item.href + item.label + index}
+                              to={item.href}
+                              onClick={() => setOpenDropdown(null)}
+                              className="text-sm tracking-wide capitalize text-cream hover:text-white transition-colors font-display"
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -380,16 +456,23 @@ export const Header = () => {
                           exit={{ opacity: 0, height: 0 }}
                           className="overflow-hidden"
                         >
-                          <div className="pl-4 py-2 flex flex-col gap-2">
-                            {link.dropdown.map((item, index) => (
-                              <Link
-                                key={item.href + item.label + index}
-                                to={item.href}
-                                onClick={() => setIsMobileMenuOpen(false)}
-                                className="text-base text-cream/80 hover:text-brass transition-colors py-1"
-                              >
-                                {item.label}
-                              </Link>
+                          <div className="pl-4 py-2 flex flex-col gap-4">
+                            {link.dropdown.map((section, sectionIndex) => (
+                              <div key={section.title + sectionIndex} className="flex flex-col gap-2">
+                                <span className="text-xs tracking-widest uppercase text-cream/50 font-display">
+                                  {section.title}
+                                </span>
+                                {section.items.map((item, index) => (
+                                  <Link
+                                    key={item.href + item.label + index}
+                                    to={item.href}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="text-base text-cream/80 hover:text-brass transition-colors py-1 pl-2"
+                                  >
+                                    {item.label}
+                                  </Link>
+                                ))}
+                              </div>
                             ))}
                           </div>
                         </motion.div>
