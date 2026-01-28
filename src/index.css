@@ -329,23 +329,24 @@
   }
 }
 
-/* Custom scrollbar for dark theme */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+/* Hide scrollbar but keep scroll functionality */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
 }
 
-::-webkit-scrollbar-track {
-  background: hsl(var(--background));
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
-::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted));
-  border-radius: 4px;
+/* Also hide for any scrollable containers */
+*::-webkit-scrollbar {
+  display: none;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--muted-foreground));
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 /* Selection color */
