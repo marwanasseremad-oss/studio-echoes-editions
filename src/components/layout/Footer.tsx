@@ -10,8 +10,8 @@ export const Footer = () => {
     <footer className="border-t border-border bg-primary text-primary-foreground">
       <div className="gallery-container section-padding">
         <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-12 lg:gap-16 text-center lg:text-left">
-          {/* Brand */}
-          <div>
+          {/* Brand - Always LTR */}
+          <div dir="ltr">
             <Link to="/">
               <img src={oliveLogo} alt="Olive Studios" className="h-48 w-auto invert mx-auto lg:mx-0" />
             </Link>
