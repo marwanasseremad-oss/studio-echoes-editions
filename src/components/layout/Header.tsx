@@ -198,35 +198,7 @@ export const Header = () => {
                     <ChevronDown className={`w-3 h-3 transition-transform ${openDropdown === link.label ? 'rotate-180' : ''}`} />
                   </button>
                   
-                  <AnimatePresence>
-                    {openDropdown === link.label && (
-                      <>
-                        {/* Full-width backdrop */}
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.2 }}
-                          className="fixed left-0 right-0 top-14 md:top-20 h-auto z-40 bg-background/70 backdrop-blur-xl border-b border-border/50"
-                          style={{ width: '100vw' }}
-                        >
-                          <div className="gallery-container py-8">
-                            <div className="flex flex-wrap gap-x-12 gap-y-4 justify-center">
-                              {link.dropdown.map((item, index) => (
-                                <Link
-                                  key={item.href + item.label + index}
-                                  to={item.href}
-                                  className="text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors py-2"
-                                >
-                                  {item.label}
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        </motion.div>
-                      </>
-                    )}
-                  </AnimatePresence>
+                  {/* Dropdown rendered via portal-like fixed positioning */}
                 </div>
               ) : (
                 <Link
@@ -243,6 +215,36 @@ export const Header = () => {
               )
             ))}
           </nav>
+
+          {/* Full-width dropdown overlay - rendered outside nav for proper positioning */}
+          <AnimatePresence>
+            {openDropdown && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.25 }}
+                className="fixed inset-x-0 top-14 md:top-20 z-40 bg-foreground/80 backdrop-blur-2xl border-b border-foreground/20"
+                onMouseEnter={() => setOpenDropdown(openDropdown)}
+                onMouseLeave={() => setOpenDropdown(null)}
+              >
+                <div className="gallery-container py-10">
+                  <div className="flex flex-wrap gap-x-16 gap-y-6 justify-center">
+                    {links.find(l => l.label === openDropdown)?.dropdown?.map((item, index) => (
+                      <Link
+                        key={item.href + item.label + index}
+                        to={item.href}
+                        onClick={() => setOpenDropdown(null)}
+                        className="text-sm tracking-widest uppercase text-background/90 hover:text-background transition-colors py-2 font-display"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {/* Actions */}
           <div className="flex items-center gap-2 md:gap-4">
