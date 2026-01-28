@@ -30,7 +30,7 @@ export const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
       transition={{ duration: 0.6, delay: index * 0.1 }}
     >
       <Link to={`/artwork/${product.id}`} className="product-card block">
-        <div className="product-card-image aspect-[3/4] mb-4">
+        <div className="product-card-image aspect-[3/4] mb-3 md:mb-4">
           <img
             src={product.image}
             alt={title}
@@ -38,12 +38,12 @@ export const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
           />
         </div>
         
-        <div className="space-y-1">
-          <h3 className="font-display text-lg tracking-wide">{title}</h3>
-          <p className="text-sm text-muted-foreground">{artistName}</p>
-          <div className="flex items-baseline justify-between pt-2">
-            <p className="text-sm">{t('product.from')} {formatPrice(lowestPrice)} EGP</p>
-            <p className="text-xs text-muted-foreground">
+        <div className="space-y-0.5 md:space-y-1">
+          <h3 className="font-display text-sm md:text-lg tracking-wide">{title}</h3>
+          <p className="text-xs md:text-sm text-muted-foreground">{artistName}</p>
+          <div className="flex items-baseline justify-between pt-1 md:pt-2">
+            <p className="text-xs md:text-sm">{t('product.from')} {formatPrice(lowestPrice)} EGP</p>
+            <p className="text-[10px] md:text-xs text-muted-foreground">
               {t('product.edition')} {product.editionSize}
             </p>
           </div>
