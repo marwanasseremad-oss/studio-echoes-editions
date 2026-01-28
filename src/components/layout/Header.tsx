@@ -88,6 +88,7 @@ const getNavLinks = (language: 'en' | 'ar'): NavLink[] => {
             items: [
               { href: '/bespoke', label: 'Bespoke Inquiries' },
               { href: '/corporate', label: 'Corporate' },
+              { href: '/contact', label: 'Contact' },
             ]
           },
           {
@@ -163,6 +164,7 @@ const getNavLinks = (language: 'en' | 'ar'): NavLink[] => {
             items: [
               { href: '/bespoke', label: 'طلبات مخصصة' },
               { href: '/corporate', label: 'الشركات' },
+              { href: '/contact', label: 'تواصل معنا' },
             ]
           },
           {
