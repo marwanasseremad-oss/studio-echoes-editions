@@ -290,11 +290,19 @@ const translations: Record<Language, Record<string, string>> = {
     // Footer
     'footer.desc': 'Museum-grade photography editions from Egypt & the Mediterranean. Limited runs, exceptional quality.',
     'footer.shop': 'Shop',
-    'footer.information': 'Information',
-    'footer.connect': 'Connect',
+    'footer.resources': 'Resources',
+    'footer.help': 'Help',
+    'footer.receiveLatest': 'Receive the latest',
     'footer.copyright': '© 2026 Olive Studios. All rights reserved.',
     'footer.privacy': 'Privacy Policy',
     'footer.terms': 'Terms of Service',
+    
+    // Footer Navigation
+    'nav.bespoke': 'Bespoke Requests',
+    'nav.reviews': 'Reviews',
+    'nav.care': 'Care & Installation',
+    'nav.faqs': 'FAQs',
+    'nav.shippingReturns': 'Shipping & Returns',
     
     // Cart
     'cart.title': 'Your Cart',
@@ -587,11 +595,19 @@ const translations: Record<Language, Record<string, string>> = {
     // Footer
     'footer.desc': 'طبعات فوتوغرافية بجودة المتاحف من مصر والبحر المتوسط. إصدارات محدودة، جودة استثنائية.',
     'footer.shop': 'تسوق',
-    'footer.information': 'معلومات',
-    'footer.connect': 'تواصل',
+    'footer.resources': 'الموارد',
+    'footer.help': 'المساعدة',
+    'footer.receiveLatest': 'استلم آخر الأخبار',
     'footer.copyright': '© ٢٠٢٦ أوليف ستوديوز. جميع الحقوق محفوظة.',
     'footer.privacy': 'سياسة الخصوصية',
     'footer.terms': 'شروط الخدمة',
+    
+    // Footer Navigation
+    'nav.bespoke': 'طلبات مخصصة',
+    'nav.reviews': 'التقييمات',
+    'nav.care': 'العناية والتركيب',
+    'nav.faqs': 'الأسئلة الشائعة',
+    'nav.shippingReturns': 'الشحن والاسترجاع',
     
     // Cart
     'cart.title': 'سلتك',

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Instagram } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { Button } from '@/components/ui/button';
 import oliveLogo from '@/assets/olive-logo.png';
 
 export const Footer = () => {
@@ -33,48 +34,64 @@ export const Footer = () => {
             </nav>
           </div>
 
-          {/* Information */}
+          {/* Resources (formerly Information) */}
           <div>
-            <h4 className="font-display text-lg tracking-wide capitalize mb-4">{t('footer.information')}</h4>
+            <h4 className="font-display text-lg tracking-wide capitalize mb-4">{t('footer.resources')}</h4>
             <nav className="flex flex-col gap-3">
-              <Link to="/about" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-                {t('nav.about')}
-              </Link>
-              <Link to="/shipping" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-                {t('nav.shipping')}
+              <Link to="/contact" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+                {t('nav.bespoke')}
               </Link>
               <Link to="/corporate" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
                 {t('nav.corporate')}
               </Link>
-              <Link to="/contact" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-                {t('nav.contact')}
+              <Link to="/about" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+                {t('nav.reviews')}
               </Link>
             </nav>
           </div>
 
-          {/* Contact */}
+          {/* Help (formerly Connect) */}
           <div>
-            <h4 className="font-display text-lg tracking-wide capitalize mb-4">{t('footer.connect')}</h4>
-            <div className="flex flex-col gap-3">
-              <a 
-                href="https://instagram.com/olivestudios" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center lg:justify-start gap-2 text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-              >
-                <Instagram className="w-4 h-4" />
-                @olivestudios
-              </a>
-              <a 
-                href="mailto:hello@olivestudios.com"
-                className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-              >
-                hello@olivestudios.com
-              </a>
-              <p className="text-sm text-primary-foreground/70">
-                Cairo, Egypt
-              </p>
-            </div>
+            <h4 className="font-display text-lg tracking-wide capitalize mb-4">{t('footer.help')}</h4>
+            <nav className="flex flex-col gap-3">
+              <Link to="/print-quality" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+                {t('nav.care')}
+              </Link>
+              <Link to="/contact" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+                {t('nav.contact')}
+              </Link>
+              <Link to="/faq" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+                {t('nav.faqs')}
+              </Link>
+              <Link to="/shipping" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+                {t('nav.shippingReturns')}
+              </Link>
+            </nav>
+          </div>
+
+          {/* Newsletter & Instagram */}
+          <div className="lg:text-left">
+            <p className="text-sm text-primary-foreground/70 mb-3">{t('footer.receiveLatest')}</p>
+            <form className="flex gap-2 mb-4">
+              <input
+                type="email"
+                placeholder={t('newsletter.placeholder')}
+                className="flex-1 px-3 py-2 text-sm border border-primary-foreground/30 bg-transparent text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:border-primary-foreground/60 min-w-0"
+                required
+              />
+              <Button type="submit" size="sm" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
+                →
+              </Button>
+            </form>
+            <a 
+              href="https://instagram.com/_olivestudios" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+            >
+              <Instagram className="w-4 h-4" />
+              @_olivestudios
+            </a>
           </div>
         </div>
 
