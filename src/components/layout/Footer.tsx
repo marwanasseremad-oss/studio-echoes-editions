@@ -10,7 +10,7 @@ export const Footer = () => {
   return (
     <footer className="border-t border-border bg-primary text-primary-foreground">
       <div className="gallery-container section-padding">
-        <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-12 lg:gap-16 text-center lg:text-left">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-12 lg:gap-20 text-center lg:text-left">
           {/* Brand - Always LTR */}
           <div dir="ltr">
             <Link to="/">
@@ -20,8 +20,8 @@ export const Footer = () => {
 
           {/* Shop */}
           <div>
-            <h4 className="font-display text-lg tracking-wide capitalize mb-4">{t('footer.shop')}</h4>
-            <nav className="flex flex-col gap-3">
+            <h4 className="font-display text-lg tracking-wide capitalize mb-6">{t('footer.shop')}</h4>
+            <nav className="flex flex-col gap-4">
               <Link to="/collection" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
                 {t('nav.collection')}
               </Link>
@@ -36,8 +36,8 @@ export const Footer = () => {
 
           {/* Resources (formerly Information) */}
           <div>
-            <h4 className="font-display text-lg tracking-wide capitalize mb-4">{t('footer.resources')}</h4>
-            <nav className="flex flex-col gap-3">
+            <h4 className="font-display text-lg tracking-wide capitalize mb-6">{t('footer.resources')}</h4>
+            <nav className="flex flex-col gap-4">
               <Link to="/contact" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
                 {t('nav.bespoke')}
               </Link>
@@ -52,8 +52,8 @@ export const Footer = () => {
 
           {/* Help (formerly Connect) */}
           <div>
-            <h4 className="font-display text-lg tracking-wide capitalize mb-4">{t('footer.help')}</h4>
-            <nav className="flex flex-col gap-3">
+            <h4 className="font-display text-lg tracking-wide capitalize mb-6">{t('footer.help')}</h4>
+            <nav className="flex flex-col gap-4">
               <Link to="/print-quality" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
                 {t('nav.care')}
               </Link>
@@ -71,17 +71,21 @@ export const Footer = () => {
 
           {/* Newsletter & Instagram */}
           <div className="lg:text-left">
-            <p className="text-sm text-primary-foreground/70 mb-3">{t('footer.receiveLatest')}</p>
-            <form className="flex gap-2 mb-4">
+            <h4 className="font-display text-lg tracking-wide capitalize mb-6">{t('footer.receiveLatest')}</h4>
+            <form className="relative mb-6">
               <input
                 type="email"
                 placeholder={t('newsletter.placeholder')}
-                className="flex-1 px-3 py-2 text-sm border border-primary-foreground/30 bg-transparent text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:border-primary-foreground/60 min-w-0"
+                className="w-full px-4 py-3 pe-12 text-sm border border-primary-foreground/20 bg-transparent text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:border-primary-foreground/40 rounded-md"
                 required
               />
-              <Button type="submit" size="sm" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
+              <button 
+                type="submit" 
+                className="absolute end-3 top-1/2 -translate-y-1/2 text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+                aria-label="Subscribe"
+              >
                 →
-              </Button>
+              </button>
             </form>
             <a 
               href="https://instagram.com/_olivestudios" 
