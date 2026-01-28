@@ -73,7 +73,7 @@ const Reviews = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="font-serif text-4xl md:text-6xl mb-6">{t('reviews.title')}</h1>
+            <h1 className="font-display text-4xl md:text-6xl mb-6 tracking-wide">{t('reviews.title')}</h1>
             <p className="text-muted-foreground text-lg">
               {t('reviews.subtitle')}
             </p>
@@ -144,7 +144,7 @@ const Reviews = () => {
                   "{review.text}"
                 </p>
                 <div className="border-t border-border pt-4">
-                  <p className="font-serif text-lg">{review.name}</p>
+                  <p className="font-display text-lg tracking-wide">{review.name}</p>
                   <p className="text-sm text-muted-foreground">{review.location}</p>
                   <p className="text-xs text-gallery-gold mt-2">{t('reviews.purchased')}: {review.artwork}</p>
                 </div>
@@ -163,7 +163,7 @@ const Reviews = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-serif text-2xl mb-4">{t('reviews.cta.title')}</h2>
+            <h2 className="font-display text-2xl mb-4 tracking-wide">{t('reviews.cta.title')}</h2>
             <p className="text-muted-foreground mb-6">
               {t('reviews.cta.subtitle')}
             </p>
