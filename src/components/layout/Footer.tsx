@@ -77,7 +77,7 @@ export const Footer = () => {
               <input
                 type="email"
                 placeholder={t('newsletter.placeholder')}
-                className="w-full px-4 py-3 pe-12 text-sm border border-primary-foreground/10 bg-transparent text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-primary-foreground/30 rounded-[30px]"
+                className="w-full px-4 py-3 pe-12 text-sm border border-primary-foreground/10 bg-transparent text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-primary-foreground/30 rounded-lg"
                 required
               />
               <button 
