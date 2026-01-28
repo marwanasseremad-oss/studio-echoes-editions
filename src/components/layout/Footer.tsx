@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Instagram, MessageCircle } from 'lucide-react';
+import { Instagram, MessageCircle, Facebook } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { Button } from '@/components/ui/button';
 import oliveLogo from '@/assets/olive-logo.png';
@@ -107,6 +107,15 @@ export const Footer = () => {
                 aria-label="Follow us on Instagram"
               >
                 <Instagram className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://www.facebook.com/olivestudios" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+                aria-label="Follow us on Facebook"
+              >
+                <Facebook className="w-5 h-5" />
               </a>
             </div>
           </div>
