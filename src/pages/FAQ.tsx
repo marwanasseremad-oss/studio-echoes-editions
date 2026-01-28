@@ -101,7 +101,7 @@ const FAQ = () => {
   return (
     <div className="pt-24">
       {/* Header */}
-      <section className="section-padding bg-card">
+      <section className="py-8 md:py-12">
         <div className="gallery-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -109,7 +109,7 @@ const FAQ = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="font-display text-4xl md:text-5xl tracking-wide mb-6">
+            <h1 className="font-display text-4xl md:text-5xl tracking-wide">
               {content.title}
             </h1>
           </motion.div>
@@ -117,7 +117,7 @@ const FAQ = () => {
       </section>
 
       {/* FAQ Content */}
-      <section className="section-padding">
+      <section className="section-padding pt-0">
         <div className="gallery-container max-w-3xl mx-auto">
           {content.categories.map((category, categoryIndex) => (
             <motion.div
