@@ -45,6 +45,7 @@ const getNavLinks = (language: 'en' | 'ar'): NavLink[] => {
               { href: '/collection?filter=history', label: 'History' },
               { href: '/collection?filter=nature', label: 'Nature' },
               { href: '/collection?filter=portrait', label: 'Portrait' },
+              { href: '/collection', label: 'View All →' },
             ]
           },
           {
@@ -121,6 +122,7 @@ const getNavLinks = (language: 'en' | 'ar'): NavLink[] => {
               { href: '/collection?filter=history', label: 'التاريخ' },
               { href: '/collection?filter=nature', label: 'الطبيعة' },
               { href: '/collection?filter=portrait', label: 'البورتريه' },
+              { href: '/collection', label: 'عرض الكل ←' },
             ]
           },
           {
