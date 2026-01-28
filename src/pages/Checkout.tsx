@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { ArrowLeft, CreditCard, Banknote, ExternalLink, Loader2, CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -315,13 +316,19 @@ const Checkout = () => {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="area">{t.area} *</Label>
-                    <Input
-                      id="area"
-                      name="area"
+                    <Select
                       value={formData.area}
-                      onChange={handleInputChange}
-                      required
-                    />
+                      onValueChange={(value) => setFormData(prev => ({ ...prev, area: value }))}
+                    >
+                      <SelectTrigger id="area">
+                        <SelectValue placeholder={language === 'ar' ? 'اختر المنطقة' : 'Select area'} />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="cairo">{language === 'ar' ? 'القاهرة' : 'Cairo'}</SelectItem>
+                        <SelectItem value="giza">{language === 'ar' ? 'الجيزة' : 'Giza'}</SelectItem>
+                        <SelectItem value="alexandria">{language === 'ar' ? 'الإسكندرية' : 'Alexandria'}</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                   <div className="md:col-span-2 space-y-2">
                     <Label htmlFor="notes">{t.notes}</Label>
