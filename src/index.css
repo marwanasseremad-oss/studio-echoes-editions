@@ -202,7 +202,7 @@
 
   /* Quiet luxury button styles */
   .btn-gallery {
-    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-medium tracking-widest uppercase transition-all duration-300;
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-medium tracking-widest uppercase transition-all duration-300 rounded-[15px];
   }
 
   [dir="rtl"] .btn-gallery {
