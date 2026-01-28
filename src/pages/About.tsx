@@ -18,7 +18,7 @@ const About = () => {
             <span className="text-xs tracking-ultra uppercase text-muted-foreground mb-4 block">
               About Us
             </span>
-            <h1 className="font-serif text-4xl md:text-6xl leading-tight mb-8">
+            <h1 className="font-display text-4xl md:text-6xl leading-tight mb-8 tracking-wide">
               Elevating Regional Photography into Collectible Art
             </h1>
           </motion.div>
@@ -37,7 +37,7 @@ const About = () => {
               className="space-y-6"
             >
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Studio Aura was founded with a simple conviction: the photographers of Egypt 
+                Olive Studios was founded with a simple conviction: the photographers of Egypt 
                 and the wider region deserve the same platform and quality that their 
                 international peers enjoy.
               </p>
@@ -92,7 +92,7 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="font-serif text-3xl md:text-4xl">Our Values</h2>
+            <h2 className="font-display text-3xl md:text-4xl tracking-wide">Our Values</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -118,7 +118,7 @@ const About = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="text-center"
               >
-                <h3 className="font-serif text-xl mb-3">{value.title}</h3>
+                <h3 className="font-display text-xl tracking-wide mb-3">{value.title}</h3>
                 <p className="text-muted-foreground">{value.desc}</p>
               </motion.div>
             ))}
@@ -135,7 +135,7 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-serif text-3xl md:text-4xl mb-6">
+            <h2 className="font-display text-3xl md:text-4xl tracking-wide mb-6">
               Ready to Start Your Collection?
             </h2>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">

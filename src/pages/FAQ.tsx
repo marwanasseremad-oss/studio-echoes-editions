@@ -131,12 +131,12 @@ const FAQ = () => {
                 {category.name}
               </h2>
               
-              <Accordion type="single" collapsible className="space-y-4">
+              <Accordion type="single" collapsible className="space-y-0">
                 {category.questions.map((item, index) => (
                   <AccordionItem
                     key={index}
                     value={`item-${categoryIndex}-${index}`}
-                    className="border border-border rounded-sm px-6 data-[state=open]:bg-card"
+                    className="border-0 border-b border-border px-0 data-[state=open]:bg-transparent"
                   >
                     <AccordionTrigger className="text-left font-display text-lg tracking-wide hover:no-underline py-5">
                       {item.question}
