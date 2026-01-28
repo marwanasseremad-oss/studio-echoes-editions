@@ -1,36 +1,64 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, MessageCircle, Truck, Shield, FileText, User } from 'lucide-react';
+import { ArrowLeft, MessageCircle, Truck, Shield, FileText, User, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { getProductById, getArtistById, type ProductVariant } from '@/data/products';
+import { getProductById, getArtistById } from '@/data/products';
 import { useCartStore } from '@/stores/cartStore';
+import { fetchProductByHandle, type ShopifyProduct } from '@/lib/shopify';
+import { toast } from 'sonner';
 
 const ArtworkDetail = () => {
   const { id } = useParams<{ id: string }>();
-  const product = getProductById(id || '');
-  const artist = product ? getArtistById(product.artistId) : null;
-  const { addItem, setIsCartOpen } = useCartStore();
+  const localProduct = getProductById(id || '');
+  const artist = localProduct ? getArtistById(localProduct.artistId) : null;
+  const { addItem, isLoading: cartLoading } = useCartStore();
 
-  const [selectedSize, setSelectedSize] = useState<'30×40' | '50×70' | '70×100'>('50×70');
+  const [shopifyProduct, setShopifyProduct] = useState<ShopifyProduct['node'] | null>(null);
+  const [isLoadingProduct, setIsLoadingProduct] = useState(true);
+  const [selectedSize, setSelectedSize] = useState<string>('50×70 cm');
   const [isFramed, setIsFramed] = useState(false);
 
-  const selectedVariant = useMemo(() => {
-    if (!product) return null;
-    return product.variants.find(
-      v => v.size === selectedSize && v.framed === isFramed
-    ) || product.variants[0];
-  }, [product, selectedSize, isFramed]);
+  // Fetch the Shopify product by handle (same as local product id)
+  useEffect(() => {
+    const loadShopifyProduct = async () => {
+      if (!id) return;
+      setIsLoadingProduct(true);
+      try {
+        const product = await fetchProductByHandle(id);
+        setShopifyProduct(product);
+      } catch (error) {
+        console.error('Failed to fetch Shopify product:', error);
+      } finally {
+        setIsLoadingProduct(false);
+      }
+    };
+    loadShopifyProduct();
+  }, [id]);
 
-  const formatPrice = (price: number) => {
+  // Find the selected variant from Shopify product
+  const selectedVariant = useMemo(() => {
+    if (!shopifyProduct?.variants?.edges) return null;
+    
+    const frameOption = isFramed ? 'Oak Frame' : 'Unframed';
+    
+    return shopifyProduct.variants.edges.find(({ node }) => {
+      const sizeMatch = node.selectedOptions.find(o => o.name === 'Size')?.value === selectedSize;
+      const frameMatch = node.selectedOptions.find(o => o.name === 'Frame')?.value === frameOption;
+      return sizeMatch && frameMatch;
+    })?.node;
+  }, [shopifyProduct, selectedSize, isFramed]);
+
+  const formatPrice = (price: number | string) => {
+    const numPrice = typeof price === 'string' ? parseFloat(price) : price;
     return new Intl.NumberFormat('en-EG', {
       style: 'decimal',
       minimumFractionDigits: 0,
-    }).format(price) + ' EGP';
+    }).format(numPrice) + ' EGP';
   };
 
-  if (!product) {
+  if (!localProduct) {
     return (
       <div className="section-padding">
         <div className="gallery-container text-center">
@@ -44,15 +72,33 @@ const ArtworkDetail = () => {
   }
 
   const whatsappMessage = encodeURIComponent(
-    `Hi, I'm interested in "${product.title}" by ${product.artistName} (${selectedSize} cm, ${isFramed ? 'Framed' : 'Unframed'}) - ${formatPrice(selectedVariant?.price || 0)}`
+    `Hi, I'm interested in "${localProduct.title}" by ${localProduct.artistName} (${selectedSize}, ${isFramed ? 'Framed' : 'Unframed'}) - ${selectedVariant ? formatPrice(selectedVariant.price.amount) : ''}`
   );
 
-  const handleAddToCart = () => {
-    // Note: This page uses local product data. For full Shopify integration,
-    // this page should fetch product from Shopify API instead.
-    // For now, just open the cart drawer as a placeholder.
-    setIsCartOpen(true);
+  const handleAddToCart = async () => {
+    if (!shopifyProduct || !selectedVariant) {
+      toast.error('Unable to add to cart', {
+        description: 'Product variant not available. Please try again.',
+      });
+      return;
+    }
+
+    await addItem({
+      product: { node: shopifyProduct } as ShopifyProduct,
+      variantId: selectedVariant.id,
+      variantTitle: selectedVariant.title,
+      price: selectedVariant.price,
+      quantity: 1,
+      selectedOptions: selectedVariant.selectedOptions,
+    });
+
+    toast.success('Added to cart', {
+      description: `${localProduct.title} - ${selectedSize}, ${isFramed ? 'Framed' : 'Unframed'}`,
+    });
   };
+
+  // Get available sizes from Shopify product
+  const availableSizes = shopifyProduct?.options?.find(o => o.name === 'Size')?.values || ['30×40 cm', '50×70 cm', '70×100 cm'];
 
   return (
     <div>
@@ -80,8 +126,8 @@ const ArtworkDetail = () => {
             >
               <div className="aspect-[3/4] bg-gallery-cream overflow-hidden sticky top-24">
                 <img
-                  src={product.image}
-                  alt={product.title}
+                  src={shopifyProduct?.images?.edges?.[0]?.node?.url || localProduct.image}
+                  alt={localProduct.title}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -96,31 +142,31 @@ const ArtworkDetail = () => {
             >
               <div className="mb-8">
                 <span className="text-xs tracking-ultra uppercase text-gallery-gold mb-2 block">
-                  Collection {product.collectionNumber}
+                  Collection {localProduct.collectionNumber}
                 </span>
-                <h1 className="font-serif text-3xl md:text-4xl mb-2">{product.title}</h1>
+                <h1 className="font-serif text-3xl md:text-4xl mb-2">{localProduct.title}</h1>
                 <Link 
-                  to={`/artists/${product.artistId}`}
+                  to={`/artists/${localProduct.artistId}`}
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  {product.artistName}
+                  {localProduct.artistName}
                 </Link>
               </div>
 
               <div className="mb-8">
                 <p className="text-muted-foreground leading-relaxed italic">
-                  "{product.description}"
+                  "{localProduct.description}"
                 </p>
               </div>
 
               <div className="flex items-center gap-6 mb-8 pb-8 border-b border-border">
                 <div>
                   <span className="text-xs text-muted-foreground uppercase tracking-wide block mb-1">Edition</span>
-                  <span className="font-serif text-lg">{product.editionsSold} / {product.editionSize}</span>
+                  <span className="font-serif text-lg">{localProduct.editionsSold} / {localProduct.editionSize}</span>
                 </div>
                 <div>
                   <span className="text-xs text-muted-foreground uppercase tracking-wide block mb-1">Availability</span>
-                  <span className="font-serif text-lg">{product.editionSize - product.editionsSold} remaining</span>
+                  <span className="font-serif text-lg">{localProduct.editionSize - localProduct.editionsSold} remaining</span>
                 </div>
               </div>
 
@@ -128,7 +174,7 @@ const ArtworkDetail = () => {
               <div className="mb-6">
                 <span className="text-sm font-medium mb-3 block">Size (cm)</span>
                 <div className="flex gap-3">
-                  {(['30×40', '50×70', '70×100'] as const).map((size) => (
+                  {availableSizes.map((size) => (
                     <button
                       key={size}
                       onClick={() => setSelectedSize(size)}
@@ -138,7 +184,7 @@ const ArtworkDetail = () => {
                           : 'border-border hover:border-primary'
                       }`}
                     >
-                      {size}
+                      {size.replace(' cm', '')}
                     </button>
                   ))}
                 </div>
@@ -173,12 +219,21 @@ const ArtworkDetail = () => {
 
               {/* Price */}
               <div className="mb-8">
-                <span className="font-serif text-3xl">
-                  {selectedVariant && formatPrice(selectedVariant.price)}
-                </span>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Free delivery in Greater Cairo · 7-14 days
-                </p>
+                {isLoadingProduct ? (
+                  <div className="flex items-center gap-2">
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    <span className="text-muted-foreground">Loading price...</span>
+                  </div>
+                ) : (
+                  <>
+                    <span className="font-serif text-3xl">
+                      {selectedVariant ? formatPrice(selectedVariant.price.amount) : 'Unavailable'}
+                    </span>
+                    <p className="text-sm text-muted-foreground mt-2">
+                      Free delivery in Greater Cairo · 7-14 days
+                    </p>
+                  </>
+                )}
               </div>
 
               {/* Actions */}
@@ -187,8 +242,16 @@ const ArtworkDetail = () => {
                   size="lg" 
                   className="btn-gallery-primary w-full"
                   onClick={handleAddToCart}
+                  disabled={isLoadingProduct || cartLoading || !selectedVariant}
                 >
-                  Add to Cart
+                  {cartLoading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      Adding...
+                    </>
+                  ) : (
+                    'Add to Cart'
+                  )}
                 </Button>
                 <a
                   href={`https://wa.me/+201234567890?text=${whatsappMessage}`}
@@ -268,10 +331,10 @@ const ArtworkDetail = () => {
                   <AccordionContent className="text-sm text-muted-foreground">
                     <p className="mb-3">{artist?.bio}</p>
                     <Link 
-                      to={`/artists/${product.artistId}`}
+                      to={`/artists/${localProduct.artistId}`}
                       className="text-foreground link-underline inline-block"
                     >
-                      View all works by {product.artistName}
+                      View all works by {localProduct.artistName}
                     </Link>
                   </AccordionContent>
                 </AccordionItem>
