@@ -224,7 +224,7 @@ export const Header = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.25 }}
-                className="fixed inset-x-0 top-14 md:top-20 z-40 bg-foreground/80 backdrop-blur-2xl border-b border-foreground/20"
+                className="fixed inset-x-0 top-14 md:top-20 z-40 bg-white/10 backdrop-blur-2xl border-b border-white/20"
                 onMouseEnter={() => setOpenDropdown(openDropdown)}
                 onMouseLeave={() => setOpenDropdown(null)}
               >
@@ -235,7 +235,7 @@ export const Header = () => {
                         key={item.href + item.label + index}
                         to={item.href}
                         onClick={() => setOpenDropdown(null)}
-                        className="text-sm tracking-widest uppercase text-background/90 hover:text-background transition-colors py-2 font-display"
+                        className="text-sm tracking-widest capitalize text-cream hover:text-white transition-colors py-2 font-display"
                       >
                         {item.label}
                       </Link>
