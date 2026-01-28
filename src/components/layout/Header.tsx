@@ -331,7 +331,7 @@ export const Header = () => {
                     <button
                       onClick={() => toggleMobileDropdown(link.label)}
                       className={`w-full text-left text-lg font-display tracking-wide py-2 inline-flex items-center justify-between ${
-                        mobileOpenDropdown === link.label ? 'text-cream' : 'text-stone'
+                        mobileOpenDropdown === link.label ? 'text-brass' : 'text-cream'
                       }`}
                     >
                       {link.label}
@@ -351,7 +351,7 @@ export const Header = () => {
                                 key={item.href + item.label + index}
                                 to={item.href}
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                className="text-base text-stone hover:text-cream transition-colors py-1"
+                                className="text-base text-cream/80 hover:text-brass transition-colors py-1"
                               >
                                 {item.label}
                               </Link>
@@ -368,8 +368,8 @@ export const Header = () => {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`text-lg font-display tracking-wide py-2 ${
                       location.pathname === link.href 
-                        ? 'text-cream' 
-                        : 'text-stone'
+                        ? 'text-brass' 
+                        : 'text-cream'
                     }`}
                   >
                     {link.label}
@@ -379,7 +379,7 @@ export const Header = () => {
               <Link
                 to="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-lg font-display tracking-wide py-2 text-stone"
+                className="text-lg font-display tracking-wide py-2 text-cream hover:text-brass transition-colors"
               >
                 {language === 'en' ? 'Contact' : 'تواصل'}
               </Link>
