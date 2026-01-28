@@ -167,12 +167,11 @@ export const Header = () => {
       }`}
     >
       <div className="gallery-container">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-16 md:h-20" dir="ltr">
           {/* Logo - Always LTR with English font */}
           <Link 
             to="/" 
             className="flex items-center gap-1.5 text-xl md:text-2xl tracking-wider text-cream"
-            dir="ltr"
           >
             <img src={oliveLogo} alt="Olive Studios" className="h-[4.5rem] md:h-[5.25rem] w-auto" />
             <span style={{ fontFamily: "'Jost', 'Futura', system-ui, sans-serif" }}>Olive Studios</span>
