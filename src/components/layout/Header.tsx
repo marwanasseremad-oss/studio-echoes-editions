@@ -335,7 +335,7 @@ export const Header = () => {
                               key={item.href + item.label + index}
                               to={item.href}
                               onClick={() => setOpenDropdown(null)}
-                              className="text-sm tracking-wide capitalize text-cream hover:text-white transition-colors font-display"
+                              className="text-sm tracking-wide capitalize text-cream/60 hover:text-cream transition-colors font-display"
                             >
                               {item.label}
                             </Link>
@@ -467,7 +467,7 @@ export const Header = () => {
                                     key={item.href + item.label + index}
                                     to={item.href}
                                     onClick={() => setIsMobileMenuOpen(false)}
-                                    className="text-base text-cream/80 hover:text-brass transition-colors py-1 pl-2"
+                                    className="text-base text-cream/60 hover:text-brass transition-colors py-1 pl-2"
                                   >
                                     {item.label}
                                   </Link>
