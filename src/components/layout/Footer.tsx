@@ -90,7 +90,7 @@ export const Footer = () => {
               </button>
             </form>
             <a 
-              href="https://instagram.com/_olivestudios" 
+              href="https://www.instagram.com/_olivestudios/?utm_source=ig_web_button_share_sheet" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex text-primary-foreground/60 hover:text-primary-foreground transition-colors"
