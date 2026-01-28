@@ -292,7 +292,7 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.shop': 'Shop',
     'footer.information': 'Information',
     'footer.connect': 'Connect',
-    'footer.copyright': '© 2024 Olive Studios. All rights reserved.',
+    'footer.copyright': '© 2026 Olive Studios. All rights reserved.',
     'footer.privacy': 'Privacy Policy',
     'footer.terms': 'Terms of Service',
     
@@ -589,7 +589,7 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.shop': 'تسوق',
     'footer.information': 'معلومات',
     'footer.connect': 'تواصل',
-    'footer.copyright': '© ٢٠٢٤ أوليف ستوديوز. جميع الحقوق محفوظة.',
+    'footer.copyright': '© ٢٠٢٦ أوليف ستوديوز. جميع الحقوق محفوظة.',
     'footer.privacy': 'سياسة الخصوصية',
     'footer.terms': 'شروط الخدمة',
     
