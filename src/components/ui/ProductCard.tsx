@@ -40,7 +40,7 @@ export const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
         
         <div className="space-y-0.5 md:space-y-1">
           <h3 className="font-display text-sm md:text-lg tracking-wide">{title}</h3>
-          <p className="text-xs md:text-sm text-muted-foreground">{artistName}</p>
+          <p className="hidden md:block text-sm text-muted-foreground">{artistName}</p>
           <div className="pt-1 md:pt-2">
             <p className="text-xs md:text-sm">{t('product.from')} {formatPrice(lowestPrice)} EGP</p>
           </div>
