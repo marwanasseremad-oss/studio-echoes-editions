@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ShoppingBag, Search } from 'lucide-react';
 import { useCartStore } from '@/stores/cartStore';
@@ -90,11 +90,45 @@ export const Header = () => {
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
   const { totalItems, setIsCartOpen } = useCartStore();
   const { language, setLanguage } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
   const count = totalItems();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollThreshold = 10;
+      
+      // Always show header at the top of the page
+      if (currentScrollY < 50) {
+        setIsVisible(true);
+        lastScrollY.current = currentScrollY;
+        return;
+      }
+      
+      // Determine scroll direction with threshold to avoid jitter
+      if (Math.abs(currentScrollY - lastScrollY.current) < scrollThreshold) {
+        return;
+      }
+      
+      if (currentScrollY > lastScrollY.current) {
+        // Scrolling down - hide header
+        setIsVisible(false);
+      } else {
+        // Scrolling up - show header
+        setIsVisible(true);
+      }
+      
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const links = getNavLinks(language);
 
@@ -127,7 +161,11 @@ export const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent border-b border-transparent">
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 bg-transparent border-b border-transparent transition-transform duration-300 ease-in-out ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
       <div className="gallery-container">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
