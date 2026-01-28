@@ -41,6 +41,17 @@ const Checkout = () => {
     notes: '',
   });
 
+  // Shipping rates by governorate
+  const shippingRates: Record<string, number> = {
+    cairo: 120,
+    giza: 150,
+    alexandria: 250,
+  };
+
+  const getShippingCost = () => {
+    return formData.area ? shippingRates[formData.area] || 0 : 0;
+  };
+
   const translations = {
     en: {
       title: 'Checkout',
@@ -305,9 +316,15 @@ const Checkout = () => {
                         <SelectValue placeholder={language === 'ar' ? 'اختر المنطقة' : 'Select area'} />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="cairo">{language === 'ar' ? 'القاهرة' : 'Cairo'}</SelectItem>
-                        <SelectItem value="giza">{language === 'ar' ? 'الجيزة' : 'Giza'}</SelectItem>
-                        <SelectItem value="alexandria">{language === 'ar' ? 'الإسكندرية' : 'Alexandria'}</SelectItem>
+                        <SelectItem value="cairo">
+                          {language === 'ar' ? 'القاهرة' : 'Cairo'} - {formatPrice(shippingRates.cairo)}
+                        </SelectItem>
+                        <SelectItem value="giza">
+                          {language === 'ar' ? 'الجيزة' : 'Giza'} - {formatPrice(shippingRates.giza)}
+                        </SelectItem>
+                        <SelectItem value="alexandria">
+                          {language === 'ar' ? 'الإسكندرية' : 'Alexandria'} - {formatPrice(shippingRates.alexandria)}
+                        </SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -417,11 +434,13 @@ const Checkout = () => {
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">{t.shipping}</span>
-                    <span className="text-primary">{t.freeShipping}</span>
+                    <span>
+                      {formData.area ? formatPrice(getShippingCost()) : (language === 'ar' ? 'اختر المنطقة' : 'Select area')}
+                    </span>
                   </div>
                   <div className="flex justify-between font-display text-lg pt-3 border-t border-border">
                     <span>{t.total}</span>
-                    <span>{formatPrice(total)}</span>
+                    <span>{formatPrice(total + getShippingCost())}</span>
                   </div>
                 </div>
 
