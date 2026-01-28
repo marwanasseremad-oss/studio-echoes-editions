@@ -357,6 +357,17 @@ const translations: Record<Language, Record<string, string>> = {
     'care.cta.subtitle': 'Our team offers professional installation services in Greater Cairo. Contact us to schedule.',
     'care.cta.button': 'Contact via WhatsApp',
     
+    // Reviews Page
+    'reviews.title': 'Customer Reviews',
+    'reviews.subtitle': 'Hear from collectors who have transformed their spaces with our museum-grade prints.',
+    'reviews.averageRating': 'Average Rating',
+    'reviews.happyCollectors': 'Happy Collectors',
+    'reviews.satisfaction': 'Satisfaction Rate',
+    'reviews.purchased': 'Purchased',
+    'reviews.cta.title': 'Ready to Join Our Collectors?',
+    'reviews.cta.subtitle': 'Browse our collection and find the perfect piece for your space.',
+    'reviews.cta.button': 'Browse Collection',
+    
     // Common
     'common.viewMore': 'View More',
     'common.learnMore': 'Learn More',
@@ -705,6 +716,17 @@ const translations: Record<Language, Record<string, string>> = {
     'care.cta.title': 'تحتاج مساعدة في التركيب؟',
     'care.cta.subtitle': 'فريقنا يقدم خدمات تركيب احترافية في القاهرة الكبرى. تواصل معنا لحجز موعد.',
     'care.cta.button': 'تواصل عبر واتساب',
+    
+    // Reviews Page
+    'reviews.title': 'آراء العملاء',
+    'reviews.subtitle': 'اسمع من هواة الجمع الذين حولوا مساحاتهم بطبعاتنا بجودة المتاحف.',
+    'reviews.averageRating': 'متوسط التقييم',
+    'reviews.happyCollectors': 'عملاء سعداء',
+    'reviews.satisfaction': 'نسبة الرضا',
+    'reviews.purchased': 'اشترى',
+    'reviews.cta.title': 'مستعد للانضمام لهواة الجمع لدينا؟',
+    'reviews.cta.subtitle': 'تصفح مجموعتنا وابحث عن القطعة المثالية لمساحتك.',
+    'reviews.cta.button': 'تصفح المجموعة',
     
     // Common
     'common.viewMore': 'عرض المزيد',
