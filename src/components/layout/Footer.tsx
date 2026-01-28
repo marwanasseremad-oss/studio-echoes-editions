@@ -71,17 +71,18 @@ export const Footer = () => {
 
           {/* Newsletter & Instagram */}
           <div className="lg:text-left">
-            <h4 className="font-display text-lg tracking-wide capitalize mb-6">{t('footer.receiveLatest')}</h4>
+            <h4 className="font-display text-lg tracking-wide capitalize mb-2">{t('footer.receiveLatest')}</h4>
+            <p className="text-sm text-primary-foreground/60 mb-4">{t('footer.newsletterPromo')}</p>
             <form className="relative mb-6">
               <input
                 type="email"
                 placeholder={t('newsletter.placeholder')}
-                className="w-full px-4 py-3 pe-12 text-sm border border-primary-foreground/20 bg-transparent text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:border-primary-foreground/40 rounded-md"
+                className="w-full px-4 py-3 pe-12 text-sm border border-primary-foreground/10 bg-transparent text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-primary-foreground/30 rounded-lg"
                 required
               />
               <button 
                 type="submit" 
-                className="absolute end-3 top-1/2 -translate-y-1/2 text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+                className="absolute end-3 top-1/2 -translate-y-1/2 text-primary-foreground/50 hover:text-primary-foreground transition-colors"
                 aria-label="Subscribe"
               >
                 →
@@ -91,10 +92,10 @@ export const Footer = () => {
               href="https://instagram.com/_olivestudios" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+              className="inline-flex text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+              aria-label="Follow us on Instagram"
             >
-              <Instagram className="w-4 h-4" />
-              @_olivestudios
+              <Instagram className="w-5 h-5" />
             </a>
           </div>
         </div>
