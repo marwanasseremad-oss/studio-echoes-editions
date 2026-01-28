@@ -167,13 +167,13 @@ export const Header = () => {
       }`}
     >
       <div className="gallery-container">
-        <div className="flex items-center justify-between h-16 md:h-20" dir="ltr">
+        <div className="flex items-center justify-between h-14 md:h-20" dir="ltr">
           {/* Logo - Always LTR with English font */}
           <Link 
             to="/" 
-            className="flex items-center gap-1.5 text-xl md:text-2xl tracking-wider text-cream"
+            className="flex items-center gap-1 md:gap-1.5 text-lg md:text-2xl tracking-wider text-cream"
           >
-            <img src={oliveLogo} alt="Olive Studios" className="h-[4.5rem] md:h-[5.25rem] w-auto" />
+            <img src={oliveLogo} alt="Olive Studios" className="h-12 md:h-[5.25rem] w-auto" />
             <span style={{ fontFamily: "'Jost', 'Futura', system-ui, sans-serif" }}>Olive Studios</span>
           </Link>
 
@@ -239,11 +239,11 @@ export const Header = () => {
           </nav>
 
           {/* Actions */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 md:gap-4">
             {/* Language Toggle */}
             <button
               onClick={() => setLanguage(language === 'en' ? 'ar' : 'en')}
-              className="font-display text-sm tracking-wide text-cream hover:text-cream/80 transition-colors"
+              className="font-display text-xs md:text-sm tracking-wide text-cream hover:text-cream/80 transition-colors"
             >
               {language === 'en' ? 'AR' : 'EN'}
             </button>
@@ -253,11 +253,11 @@ export const Header = () => {
               {isSearchOpen ? (
                 <motion.form
                   initial={{ width: 0, opacity: 0 }}
-                  animate={{ width: 200, opacity: 1 }}
+                  animate={{ width: 160, opacity: 1 }}
                   exit={{ width: 0, opacity: 0 }}
                   transition={{ duration: 0.3 }}
                   onSubmit={handleSearchSubmit}
-                  className="flex items-center overflow-hidden"
+                  className="flex items-center overflow-hidden md:!w-[200px]"
                 >
                   <input
                     type="text"
@@ -266,7 +266,7 @@ export const Header = () => {
                     onKeyDown={handleSearchKeyDown}
                     placeholder={language === 'en' ? 'Search...' : 'بحث...'}
                     autoFocus
-                    className="w-full bg-transparent border-b border-cream/50 text-cream placeholder:text-cream/50 text-sm py-1 px-2 focus:outline-none focus:border-cream transition-colors"
+                    className="w-full bg-transparent border-b border-cream/50 text-cream placeholder:text-cream/50 text-xs md:text-sm py-1 px-2 focus:outline-none focus:border-cream transition-colors"
                   />
                   <button
                     type="button"
@@ -274,30 +274,30 @@ export const Header = () => {
                       setIsSearchOpen(false);
                       setSearchQuery('');
                     }}
-                    className="p-1 text-cream hover:text-cream/80 transition-colors"
+                    className="p-0.5 md:p-1 text-cream hover:text-cream/80 transition-colors"
                   >
-                    <X className="w-4 h-4" />
+                    <X className="w-3.5 h-3.5 md:w-4 md:h-4" />
                   </button>
                 </motion.form>
               ) : (
                 <button
                   onClick={() => setIsSearchOpen(true)}
-                  className="p-2 hover:bg-cream/10 rounded-sm transition-colors text-cream"
+                  className="p-1.5 md:p-2 hover:bg-cream/10 rounded-sm transition-colors text-cream"
                   aria-label="Search"
                 >
-                  <Search className="w-5 h-5" />
+                  <Search className="w-4 h-4 md:w-5 md:h-5" />
                 </button>
               )}
             </AnimatePresence>
 
             <button
               onClick={() => setIsCartOpen(true)}
-              className="relative p-2 hover:bg-cream/10 rounded-sm transition-colors text-cream"
+              className="relative p-1.5 md:p-2 hover:bg-cream/10 rounded-sm transition-colors text-cream"
               aria-label="Open cart"
             >
-              <ShoppingBag className="w-5 h-5" />
+              <ShoppingBag className="w-4 h-4 md:w-5 md:h-5" />
               {count > 0 && (
-                <span className="absolute -top-1 -right-1 w-5 h-5 bg-brass text-olive-black text-xs rounded-full flex items-center justify-center">
+                <span className="absolute -top-0.5 -right-0.5 md:-top-1 md:-right-1 w-4 h-4 md:w-5 md:h-5 bg-brass text-olive-black text-[10px] md:text-xs rounded-full flex items-center justify-center">
                   {count}
                 </span>
               )}
@@ -306,10 +306,10 @@ export const Header = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 hover:bg-cream/10 rounded-sm transition-colors text-cream"
+              className="lg:hidden p-1.5 md:p-2 hover:bg-cream/10 rounded-sm transition-colors text-cream"
               aria-label="Toggle menu"
             >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isMobileMenuOpen ? <X className="w-4 h-4 md:w-5 md:h-5" /> : <Menu className="w-4 h-4 md:w-5 md:h-5" />}
             </button>
           </div>
         </div>
