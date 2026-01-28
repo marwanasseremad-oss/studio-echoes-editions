@@ -16,7 +16,7 @@ const PrintQuality = () => {
             <span className="text-xs tracking-ultra uppercase text-muted-foreground mb-4 block">
               Our Commitment
             </span>
-            <h1 className="font-serif text-4xl md:text-6xl mb-6">Museum-Grade Quality</h1>
+            <h1 className="font-display text-4xl md:text-6xl mb-6 tracking-wide">Museum-Grade Quality</h1>
             <p className="text-muted-foreground text-lg">
               We print only on the finest archival materials, using techniques trusted by 
               leading galleries and collectors worldwide.
@@ -38,7 +38,7 @@ const PrintQuality = () => {
               <span className="text-xs tracking-ultra uppercase text-gallery-gold mb-4 block">
                 The Studio Standard
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl mb-6">
+              <h2 className="font-display text-3xl md:text-4xl mb-6 tracking-wide">
                 Crafted for Generations
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
@@ -69,7 +69,7 @@ const PrintQuality = () => {
                 <div key={index} className="flex gap-4">
                   <CheckCircle className="w-5 h-5 text-gallery-gold flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-serif text-lg mb-1">{item.title}</h3>
+                    <h3 className="font-display text-lg mb-1 tracking-wide">{item.title}</h3>
                     <p className="text-sm text-muted-foreground">{item.desc}</p>
                   </div>
                 </div>
@@ -89,7 +89,7 @@ const PrintQuality = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="font-serif text-3xl md:text-4xl mb-4">Materials</h2>
+            <h2 className="font-display text-3xl md:text-4xl mb-4 tracking-wide">Materials</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               The finest papers and inks, sourced from the world's leading manufacturers.
             </p>
@@ -121,7 +121,7 @@ const PrintQuality = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="text-center"
               >
-                <h3 className="font-serif text-xl mb-1">{item.title}</h3>
+                <h3 className="font-display text-xl mb-1 tracking-wide">{item.title}</h3>
                 <span className="text-xs tracking-wide uppercase text-gallery-gold block mb-4">
                   {item.subtitle}
                 </span>
@@ -144,7 +144,7 @@ const PrintQuality = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="font-serif text-3xl md:text-4xl mb-4">The Process</h2>
+            <h2 className="font-display text-3xl md:text-4xl mb-4 tracking-wide">The Process</h2>
           </motion.div>
 
           <div className="max-w-3xl mx-auto space-y-12">
@@ -192,7 +192,7 @@ const PrintQuality = () => {
                   {item.step}
                 </span>
                 <div>
-                  <h3 className="font-serif text-xl mb-2">{item.title}</h3>
+                  <h3 className="font-display text-xl mb-2 tracking-wide">{item.title}</h3>
                   <p className="text-muted-foreground">{item.desc}</p>
                 </div>
               </motion.div>

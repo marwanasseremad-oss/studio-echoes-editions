@@ -16,7 +16,7 @@ const Care = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="font-serif text-4xl md:text-6xl mb-6">{t('care.title')}</h1>
+            <h1 className="font-display text-4xl md:text-6xl mb-6 tracking-wide">{t('care.title')}</h1>
             <p className="text-muted-foreground text-lg">
               {t('care.subtitle')}
             </p>
@@ -42,7 +42,7 @@ const Care = () => {
                 className="text-center"
               >
                 <item.icon className="w-6 h-6 mx-auto mb-3 text-gallery-gold" />
-                <h3 className="font-serif text-lg mb-1">{item.title}</h3>
+                <h3 className="font-display text-lg mb-1 tracking-wide">{item.title}</h3>
                 <p className="text-sm text-muted-foreground">{item.desc}</p>
               </motion.div>
             ))}
@@ -63,7 +63,7 @@ const Care = () => {
             >
               <div className="flex items-center gap-3 mb-6">
                 <Package className="w-5 h-5 text-gallery-gold" />
-                <h2 className="font-serif text-2xl">{t('care.unpacking.title')}</h2>
+                <h2 className="font-display text-2xl tracking-wide">{t('care.unpacking.title')}</h2>
               </div>
               <div className="space-y-4 text-muted-foreground">
                 <p>{t('care.unpacking.p1')}</p>
@@ -81,7 +81,7 @@ const Care = () => {
             >
               <div className="flex items-center gap-3 mb-6">
                 <Hammer className="w-5 h-5 text-gallery-gold" />
-                <h2 className="font-serif text-2xl">{t('care.installation.title')}</h2>
+                <h2 className="font-display text-2xl tracking-wide">{t('care.installation.title')}</h2>
               </div>
               <div className="space-y-4 text-muted-foreground">
                 <p>
@@ -112,7 +112,7 @@ const Care = () => {
             >
               <div className="flex items-center gap-3 mb-6">
                 <Sun className="w-5 h-5 text-gallery-gold" />
-                <h2 className="font-serif text-2xl">{t('care.environment.title')}</h2>
+                <h2 className="font-display text-2xl tracking-wide">{t('care.environment.title')}</h2>
               </div>
               <div className="space-y-4 text-muted-foreground">
                 <p>
@@ -139,7 +139,7 @@ const Care = () => {
             >
               <div className="flex items-center gap-3 mb-6">
                 <Sparkles className="w-5 h-5 text-gallery-gold" />
-                <h2 className="font-serif text-2xl">{t('care.cleaning.title')}</h2>
+                <h2 className="font-display text-2xl tracking-wide">{t('care.cleaning.title')}</h2>
               </div>
               <div className="space-y-4 text-muted-foreground">
                 <p>
@@ -164,7 +164,7 @@ const Care = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="font-serif text-2xl mb-6">{t('care.framing.title')}</h2>
+              <h2 className="font-display text-2xl mb-6 tracking-wide">{t('care.framing.title')}</h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>{t('care.framing.p1')}</p>
                 <p>{t('care.framing.p2')}</p>
@@ -183,7 +183,7 @@ const Care = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-serif text-2xl mb-4">{t('care.cta.title')}</h2>
+            <h2 className="font-display text-2xl mb-4 tracking-wide">{t('care.cta.title')}</h2>
             <p className="text-muted-foreground mb-6">
               {t('care.cta.subtitle')}
             </p>

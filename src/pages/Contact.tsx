@@ -34,7 +34,7 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="font-serif text-4xl md:text-6xl mb-6">Get in Touch</h1>
+            <h1 className="font-display text-4xl md:text-6xl mb-6 tracking-wide">Get in Touch</h1>
             <p className="text-muted-foreground text-lg">
               Questions about a piece? Need help choosing the right size? 
               Our concierge is here to assist.
@@ -56,7 +56,7 @@ const Contact = () => {
               className="space-y-12"
             >
               <div>
-                <h2 className="font-serif text-2xl mb-8">Contact Information</h2>
+                <h2 className="font-display text-2xl mb-8 tracking-wide">Contact Information</h2>
                 
                 <div className="space-y-6">
                   <a
@@ -67,7 +67,7 @@ const Contact = () => {
                   >
                     <MessageCircle className="w-6 h-6 text-gallery-gold flex-shrink-0" />
                     <div>
-                      <h3 className="font-serif text-lg mb-1">WhatsApp Concierge</h3>
+                      <h3 className="font-display text-lg mb-1 tracking-wide">WhatsApp Concierge</h3>
                       <p className="text-sm text-muted-foreground">
                         Fastest response. Available 10am-8pm Cairo time.
                       </p>
@@ -81,7 +81,7 @@ const Contact = () => {
                   >
                     <Mail className="w-6 h-6 text-gallery-gold flex-shrink-0" />
                     <div>
-                      <h3 className="font-serif text-lg mb-1">Email</h3>
+                      <h3 className="font-display text-lg mb-1 tracking-wide">Email</h3>
                       <p className="text-sm text-muted-foreground">
                         For detailed inquiries and documentation.
                       </p>
@@ -97,7 +97,7 @@ const Contact = () => {
                   >
                     <Instagram className="w-6 h-6 text-gallery-gold flex-shrink-0" />
                     <div>
-                      <h3 className="font-serif text-lg mb-1">Instagram</h3>
+                      <h3 className="font-display text-lg mb-1 tracking-wide">Instagram</h3>
                       <p className="text-sm text-muted-foreground">
                         Follow for new releases and behind-the-scenes.
                       </p>
@@ -108,7 +108,7 @@ const Contact = () => {
                   <div className="flex items-start gap-4 p-6 bg-card border border-border">
                     <MapPin className="w-6 h-6 text-gallery-gold flex-shrink-0" />
                     <div>
-                      <h3 className="font-serif text-lg mb-1">Location</h3>
+                      <h3 className="font-display text-lg mb-1 tracking-wide">Location</h3>
                       <p className="text-sm text-muted-foreground">
                         Cairo, Egypt
                       </p>
@@ -128,7 +128,7 @@ const Contact = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <h2 className="font-serif text-2xl mb-8">Send a Message</h2>
+              <h2 className="font-display text-2xl mb-8 tracking-wide">Send a Message</h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
