@@ -169,16 +169,18 @@ export const Header = () => {
       <div className="gallery-container">
         <div className="flex items-center justify-between h-14 md:h-20" dir="ltr">
           {/* Logo - Always LTR with English font */}
-          <Link 
-            to="/" 
-            className="flex items-center gap-1 md:gap-1.5 text-lg md:text-2xl tracking-wider text-cream"
-          >
-            <img src={oliveLogo} alt="Olive Studios" className="h-12 md:h-[5.25rem] w-auto" />
-            <span style={{ fontFamily: "'Jost', 'Futura', system-ui, sans-serif" }}>Olive Studios</span>
-          </Link>
+          <div className="flex-1 flex justify-start">
+            <Link 
+              to="/" 
+              className="flex items-center gap-1 md:gap-1.5 text-lg md:text-2xl tracking-wider text-cream"
+            >
+              <img src={oliveLogo} alt="Olive Studios" className="h-12 md:h-[5.25rem] w-auto" />
+              <span style={{ fontFamily: "'Jost', 'Futura', system-ui, sans-serif" }}>Olive Studios</span>
+            </Link>
+          </div>
 
-          {/* Desktop Navigation - Absolutely Centered */}
-          <nav className="hidden lg:flex items-center justify-center gap-8 absolute left-1/2 -translate-x-1/2">
+          {/* Desktop Navigation - Centered */}
+          <nav className="hidden lg:flex items-center justify-center gap-8">
             {links.map((link) => (
               link.dropdown ? (
                 <div
@@ -239,7 +241,7 @@ export const Header = () => {
           </nav>
 
           {/* Actions */}
-          <div className="flex items-center gap-2 md:gap-4">
+          <div className="flex-1 flex items-center justify-end gap-2 md:gap-4">
             {/* Language Toggle */}
             <button
               onClick={() => setLanguage(language === 'en' ? 'ar' : 'en')}
