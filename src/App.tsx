@@ -19,6 +19,7 @@ import Care from "./pages/Care";
 import Reviews from "./pages/Reviews";
 import Corporate from "./pages/Corporate";
 import Contact from "./pages/Contact";
+import Bespoke from "./pages/Bespoke";
 import FAQ from "./pages/FAQ";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
@@ -45,6 +46,7 @@ const AppContent = () => {
           <Route path="/care" element={<Care />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/corporate" element={<Corporate />} />
+          <Route path="/bespoke" element={<Bespoke />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/privacy" element={<Privacy />} />
