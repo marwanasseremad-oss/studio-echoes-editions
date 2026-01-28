@@ -13,7 +13,7 @@ export const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex flex-col items-start gap-2">
-              <img src={oliveLogo} alt="Olive Studios" className="h-72 w-auto" />
+              <img src={oliveLogo} alt="Olive Studios" className="h-24 w-auto" />
               <span className="font-display text-2xl tracking-museum">Olive Studios</span>
             </Link>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
