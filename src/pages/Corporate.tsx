@@ -38,7 +38,7 @@ const Corporate = () => {
             <span className="text-xs tracking-ultra uppercase text-muted-foreground mb-4 block">
               For Business
             </span>
-            <h1 className="font-serif text-4xl md:text-6xl mb-6">
+            <h1 className="font-display text-4xl md:text-6xl mb-6 tracking-wide">
               Corporate & Interior Designers
             </h1>
             <p className="text-muted-foreground text-lg">
@@ -79,7 +79,7 @@ const Corporate = () => {
                 className="text-center"
               >
                 <service.icon className="w-8 h-8 mx-auto mb-4 text-gallery-gold" />
-                <h3 className="font-serif text-xl mb-3">{service.title}</h3>
+                <h3 className="font-display text-xl mb-3 tracking-wide">{service.title}</h3>
                 <p className="text-muted-foreground">{service.desc}</p>
               </motion.div>
             ))}
@@ -97,11 +97,11 @@ const Corporate = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="font-serif text-3xl mb-8">What We Offer</h2>
+              <h2 className="font-display text-3xl mb-8 tracking-wide">What We Offer</h2>
               
               <div className="space-y-8">
                 <div>
-                  <h3 className="font-serif text-lg mb-2">Curated Packages</h3>
+                  <h3 className="font-display text-lg mb-2 tracking-wide">Curated Packages</h3>
                   <p className="text-muted-foreground">
                     Tell us about your space and vision. We'll propose a selection of works, 
                     sizes, and framing options tailored to your project.
@@ -109,7 +109,7 @@ const Corporate = () => {
                 </div>
 
                 <div>
-                  <h3 className="font-serif text-lg mb-2">Bulk Pricing</h3>
+                  <h3 className="font-display text-lg mb-2 tracking-wide">Bulk Pricing</h3>
                   <p className="text-muted-foreground">
                     Significant discounts for orders of 5+ prints. Custom pricing 
                     for large-scale hospitality and commercial projects.
@@ -117,7 +117,7 @@ const Corporate = () => {
                 </div>
 
                 <div>
-                  <h3 className="font-serif text-lg mb-2">Custom Editions</h3>
+                  <h3 className="font-display text-lg mb-2 tracking-wide">Custom Editions</h3>
                   <p className="text-muted-foreground">
                     For exclusive projects, we can work with artists to create 
                     unique editions or sizes not available in our standard collection.
@@ -125,7 +125,7 @@ const Corporate = () => {
                 </div>
 
                 <div>
-                  <h3 className="font-serif text-lg mb-2">Installation Services</h3>
+                  <h3 className="font-display text-lg mb-2 tracking-wide">Installation Services</h3>
                   <p className="text-muted-foreground">
                     Our team handles delivery, placement, and professional hanging 
                     for projects in Greater Cairo and Alexandria.
@@ -133,7 +133,7 @@ const Corporate = () => {
                 </div>
 
                 <div>
-                  <h3 className="font-serif text-lg mb-2">Invoicing & Terms</h3>
+                  <h3 className="font-display text-lg mb-2 tracking-wide">Invoicing & Terms</h3>
                   <p className="text-muted-foreground">
                     Flexible payment terms for corporate clients. VAT invoicing available.
                   </p>
@@ -149,7 +149,7 @@ const Corporate = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="bg-card p-8 border border-border"
             >
-              <h2 className="font-serif text-2xl mb-6">Request a Consultation</h2>
+              <h2 className="font-display text-2xl mb-6 tracking-wide">Request a Consultation</h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

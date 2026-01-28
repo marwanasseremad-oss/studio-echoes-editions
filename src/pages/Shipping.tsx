@@ -13,7 +13,7 @@ const Shipping = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="font-serif text-4xl md:text-6xl mb-6">Shipping & Returns</h1>
+            <h1 className="font-display text-4xl md:text-6xl mb-6 tracking-wide">Shipping & Returns</h1>
             <p className="text-muted-foreground text-lg">
               We take the same care in delivering your art as we do in creating it. 
               Clear policies, secure packaging, and dedicated support.
@@ -41,7 +41,7 @@ const Shipping = () => {
                 className="text-center"
               >
                 <item.icon className="w-6 h-6 mx-auto mb-3 text-gallery-gold" />
-                <h3 className="font-serif text-lg mb-1">{item.title}</h3>
+                <h3 className="font-display text-lg mb-1 tracking-wide">{item.title}</h3>
                 <p className="text-sm text-muted-foreground">{item.desc}</p>
               </motion.div>
             ))}
@@ -60,7 +60,7 @@ const Shipping = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="font-serif text-2xl mb-6">Delivery Within Egypt</h2>
+              <h2 className="font-display text-2xl mb-6 tracking-wide">Delivery Within Egypt</h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
                   <strong className="text-foreground">Greater Cairo (New Cairo, Maadi, Zamalek, Sheikh Zayed, 6th October):</strong><br />
@@ -90,7 +90,7 @@ const Shipping = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="font-serif text-2xl mb-6">Packaging</h2>
+              <h2 className="font-display text-2xl mb-6 tracking-wide">Packaging</h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
                   <strong className="text-foreground">Unframed Prints:</strong><br />
@@ -112,7 +112,7 @@ const Shipping = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="font-serif text-2xl mb-6">Returns & Replacements</h2>
+              <h2 className="font-display text-2xl mb-6 tracking-wide">Returns & Replacements</h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
                   <strong className="text-foreground">Damage in Transit:</strong><br />
@@ -140,7 +140,7 @@ const Shipping = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="font-serif text-2xl mb-6">Payment Options</h2>
+              <h2 className="font-display text-2xl mb-6 tracking-wide">Payment Options</h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
                   <strong className="text-foreground">Credit/Debit Cards:</strong><br />
@@ -170,7 +170,7 @@ const Shipping = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-serif text-2xl mb-4">Questions?</h2>
+            <h2 className="font-display text-2xl mb-4 tracking-wide">Questions?</h2>
             <p className="text-muted-foreground mb-6">
               Our concierge is available to assist with any shipping or delivery questions.
             </p>
