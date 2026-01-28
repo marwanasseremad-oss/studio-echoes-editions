@@ -168,13 +168,14 @@ export const Header = () => {
     >
       <div className="gallery-container">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
+          {/* Logo - Always LTR */}
           <Link 
             to="/" 
             className="flex items-center gap-1.5 font-display text-xl md:text-2xl tracking-wider text-cream"
+            dir="ltr"
           >
             <img src={oliveLogo} alt="Olive Studios" className="h-[4.5rem] md:h-[5.25rem] w-auto" />
-            Olive Studios
+            <span className="font-display">Olive Studios</span>
           </Link>
 
           {/* Desktop Navigation - Centered */}
