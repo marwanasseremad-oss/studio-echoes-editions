@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
-import { X, Minus, Plus, Trash2, ExternalLink, Loader2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Minus, Plus, Trash2, Loader2, ArrowRight } from 'lucide-react';
 import { useCartStore } from '@/stores/cartStore';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/context/LanguageContext';
 
 export const CartDrawer = () => {
+  const navigate = useNavigate();
   const { language } = useLanguage();
   const { 
     items, 
@@ -17,7 +19,6 @@ export const CartDrawer = () => {
     totalItems,
     isLoading,
     isSyncing,
-    getCheckoutUrl,
     syncCart
   } = useCartStore();
 
@@ -34,11 +35,8 @@ export const CartDrawer = () => {
   };
 
   const handleCheckout = () => {
-    const checkoutUrl = getCheckoutUrl();
-    if (checkoutUrl) {
-      window.open(checkoutUrl, '_blank');
-      setIsCartOpen(false);
-    }
+    setIsCartOpen(false);
+    navigate('/checkout');
   };
 
   const total = totalPrice();
@@ -51,8 +49,7 @@ export const CartDrawer = () => {
       browse: 'Browse Collection',
       subtotal: 'Subtotal',
       shipping: 'Shipping calculated at checkout. Free delivery within Greater Cairo.',
-      checkout: 'Proceed to Checkout',
-      whatsapp: 'Complete via WhatsApp'
+      checkout: 'Proceed to Checkout'
     },
     ar: {
       title: 'اختياراتك',
@@ -60,8 +57,7 @@ export const CartDrawer = () => {
       browse: 'تصفح المجموعة',
       subtotal: 'المجموع الفرعي',
       shipping: 'يتم حساب الشحن عند الدفع. توصيل مجاني داخل القاهرة الكبرى.',
-      checkout: 'متابعة الدفع',
-      whatsapp: 'إتمام عبر واتساب'
+      checkout: 'متابعة الدفع'
     }
   };
 
@@ -162,24 +158,11 @@ export const CartDrawer = () => {
                   <Loader2 className="w-4 h-4 animate-spin" />
                 ) : (
                   <>
-                    <ExternalLink className="w-4 h-4 mr-2" />
+                    <ArrowRight className="w-4 h-4 mr-2" />
                     {t.checkout}
                   </>
                 )}
               </Button>
-              
-              <a
-                href={`https://wa.me/+201234567890?text=${encodeURIComponent(
-                  `Hi, I'd like to complete my order:\n\n${items.map(item => 
-                    `• ${item.product.node.title} (${item.selectedOptions.map(o => o.value).join(', ')}) x${item.quantity}`
-                  ).join('\n')}\n\nTotal: ${formatPrice(total)}`
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full border border-cream/30 text-cream hover:bg-cream/10 flex items-center justify-center py-3 transition-colors"
-              >
-                {t.whatsapp}
-              </a>
             </div>
           </>
         )}
