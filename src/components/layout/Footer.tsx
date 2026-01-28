@@ -54,7 +54,7 @@ export const Footer = () => {
           <div>
             <h4 className="font-display text-lg tracking-wide capitalize mb-6">{t('footer.help')}</h4>
             <nav className="flex flex-col gap-4">
-              <Link to="/print-quality" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+              <Link to="/care" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
                 {t('nav.care')}
               </Link>
               <Link to="/contact" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">

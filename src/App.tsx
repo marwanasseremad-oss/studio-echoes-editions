@@ -15,6 +15,7 @@ import ArtistDetail from "./pages/ArtistDetail";
 import PrintQuality from "./pages/PrintQuality";
 import About from "./pages/About";
 import Shipping from "./pages/Shipping";
+import Care from "./pages/Care";
 import Corporate from "./pages/Corporate";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
@@ -40,6 +41,7 @@ const AppContent = () => {
           <Route path="/print-quality" element={<PrintQuality />} />
           <Route path="/about" element={<About />} />
           <Route path="/shipping" element={<Shipping />} />
+          <Route path="/care" element={<Care />} />
           <Route path="/corporate" element={<Corporate />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<FAQ />} />
