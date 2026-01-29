@@ -105,6 +105,30 @@ const Index = () => {
         </div>
       </section>
 
+      {/* As Seen On */}
+      <section className="bg-primary py-8 md:py-12">
+        <div className="gallery-container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
+          >
+            <span className="text-[10px] md:text-xs tracking-ultra uppercase text-primary-foreground/60 mb-6 md:mb-8 block">
+              {t('asSeenOn.title')}
+            </span>
+            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
+              {/* Placeholder logos - replace with actual publication logos */}
+              <div className="h-6 md:h-8 w-24 md:w-32 bg-primary-foreground/20 rounded-[15px]" />
+              <div className="h-6 md:h-8 w-24 md:w-32 bg-primary-foreground/20 rounded-[15px]" />
+              <div className="h-6 md:h-8 w-24 md:w-32 bg-primary-foreground/20 rounded-[15px]" />
+              <div className="h-6 md:h-8 w-24 md:w-32 bg-primary-foreground/20 rounded-[15px]" />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Featured Collection */}
       <section className="section-padding">
         <div className="gallery-container">

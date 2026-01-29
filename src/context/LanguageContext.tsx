@@ -77,6 +77,9 @@ const translations: Record<Language, Record<string, string>> = {
     // Instagram
     'instagram.title': 'Follow the Studio',
     
+    // As Seen On
+    'asSeenOn.title': 'As Seen On',
+    
     // Collection Page
     'collection.tagline': 'Now Available',
     'collection.title': 'Collection 001',
@@ -436,6 +439,9 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Instagram
     'instagram.title': 'تابع الاستوديو',
+    
+    // As Seen On
+    'asSeenOn.title': 'كما ظهرنا في',
     
     // Collection Page
     'collection.tagline': 'متاحة الآن',
