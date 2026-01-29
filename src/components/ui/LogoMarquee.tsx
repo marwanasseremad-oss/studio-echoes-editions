@@ -32,12 +32,12 @@ export const LogoMarquee = () => {
         {duplicatedLogos.map((logo, index) => (
           <div
             key={index}
-            className="flex-shrink-0 h-8 md:h-12 flex items-center justify-center"
+            className="flex-shrink-0 h-10 md:h-16 flex items-center justify-center"
           >
             <img
               src={logo.src}
               alt={logo.alt}
-              className="h-full w-auto object-contain max-w-[120px] md:max-w-[160px]"
+              className="h-full w-auto object-contain max-w-[140px] md:max-w-[200px]"
             />
           </div>
         ))}
