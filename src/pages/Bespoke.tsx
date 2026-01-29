@@ -184,7 +184,7 @@ const Bespoke = () => {
                 transition={{ delay: index * 0.1 }}
                 className="text-center md:text-left"
               >
-                <span className="font-display text-4xl md:text-5xl text-brass/30 block mb-4">
+                <span className="font-serif text-4xl md:text-5xl text-brass/30 block mb-4">
                   {step.number}
                 </span>
                 <h3 className="font-display text-xl text-cream mb-2">
