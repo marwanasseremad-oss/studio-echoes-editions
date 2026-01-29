@@ -1,13 +1,11 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Minus, Plus, Trash2, Loader2, ArrowRight } from 'lucide-react';
+import { Minus, Plus, Trash2, Loader2, ExternalLink } from 'lucide-react';
 import { useCartStore } from '@/stores/cartStore';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/context/LanguageContext';
 
 export const CartDrawer = () => {
-  const navigate = useNavigate();
   const { language } = useLanguage();
   const { 
     items, 
@@ -19,7 +17,8 @@ export const CartDrawer = () => {
     totalItems,
     isLoading,
     isSyncing,
-    syncCart
+    syncCart,
+    getCheckoutUrl
   } = useCartStore();
 
   // Sync cart when drawer opens
@@ -35,8 +34,11 @@ export const CartDrawer = () => {
   };
 
   const handleCheckout = () => {
-    setIsCartOpen(false);
-    navigate('/checkout');
+    const checkoutUrl = getCheckoutUrl();
+    if (checkoutUrl) {
+      window.open(checkoutUrl, '_blank');
+      setIsCartOpen(false);
+    }
   };
 
   const total = totalPrice();
@@ -158,7 +160,7 @@ export const CartDrawer = () => {
                   <Loader2 className="w-4 h-4 animate-spin" />
                 ) : (
                   <>
-                    <ArrowRight className="w-4 h-4 mr-2" />
+                    <ExternalLink className="w-4 h-4 mr-2" />
                     {t.checkout}
                   </>
                 )}
