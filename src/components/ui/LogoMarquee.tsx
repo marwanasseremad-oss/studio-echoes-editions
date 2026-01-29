@@ -13,17 +13,17 @@ export const LogoMarquee = () => {
     <div className="overflow-hidden w-full">
       <div className="flex animate-marquee">
         {/* First set */}
-        <div className="flex items-center gap-16 md:gap-24 shrink-0 px-8 md:px-12">
+        <div className="flex items-center gap-16 md:gap-24 shrink-0">
           {logos.map((logo, index) => (
-            <div key={index} className="flex-shrink-0 flex items-center justify-center">
+            <div key={index} className="flex-shrink-0 flex items-center justify-center px-8 md:px-12">
               <img src={logo.src} alt={logo.alt} className={`w-auto object-contain ${logo.className}`} />
             </div>
           ))}
         </div>
         {/* Duplicate set for seamless loop */}
-        <div className="flex items-center gap-16 md:gap-24 shrink-0 px-8 md:px-12">
+        <div className="flex items-center gap-16 md:gap-24 shrink-0">
           {logos.map((logo, index) => (
-            <div key={`dup-${index}`} className="flex-shrink-0 flex items-center justify-center">
+            <div key={`dup-${index}`} className="flex-shrink-0 flex items-center justify-center px-8 md:px-12">
               <img src={logo.src} alt={logo.alt} className={`w-auto object-contain ${logo.className}`} />
             </div>
           ))}
