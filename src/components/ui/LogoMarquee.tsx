@@ -4,9 +4,9 @@ import cairo360Logo from '@/assets/logos/cairo-360.png';
 import cairoSceneLogo from '@/assets/logos/cairo-scene.png';
 
 const logos = [
-  { src: egyptianStreetsLogo, alt: 'Egyptian Streets', className: 'h-14 md:h-20' },
+  { src: egyptianStreetsLogo, alt: 'Egyptian Streets', className: 'h-[4.5rem] md:h-[6.5rem]' },
   { src: cairo360Logo, alt: 'Cairo 360', className: 'h-10 md:h-16' },
-  { src: cairoSceneLogo, alt: 'Cairo Scene', className: 'h-14 md:h-20' },
+  { src: cairoSceneLogo, alt: 'Cairo Scene', className: 'h-[4.5rem] md:h-[6.5rem]' },
 ];
 
 export const LogoMarquee = () => {
