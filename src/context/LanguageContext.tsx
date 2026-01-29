@@ -299,7 +299,7 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.terms': 'Terms of Service',
     
     // Footer Navigation
-    'nav.bespoke': 'Bespoke Inquiry',
+    'nav.bespoke': 'Bespoke Inquiries',
     'nav.reviews': 'Reviews',
     'nav.care': 'Care & Installation',
     'nav.faqs': 'FAQs',
@@ -659,7 +659,7 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.terms': 'شروط الخدمة',
     
     // Footer Navigation
-    'nav.bespoke': 'استفسار مخصص',
+    'nav.bespoke': 'استفسارات مخصصة',
     'nav.reviews': 'التقييمات',
     'nav.care': 'العناية والتركيب',
     'nav.faqs': 'الأسئلة الشائعة',
