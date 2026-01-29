@@ -4,9 +4,9 @@ import cairo360Logo from '@/assets/logos/cairo-360.png';
 import cairoSceneLogo from '@/assets/logos/cairo-scene.png';
 
 const logos = [
-  { src: egyptianStreetsLogo, alt: 'Egyptian Streets' },
-  { src: cairo360Logo, alt: 'Cairo 360' },
-  { src: cairoSceneLogo, alt: 'Cairo Scene' },
+  { src: egyptianStreetsLogo, alt: 'Egyptian Streets', className: 'h-14 md:h-20' },
+  { src: cairo360Logo, alt: 'Cairo 360', className: 'h-10 md:h-16' },
+  { src: cairoSceneLogo, alt: 'Cairo Scene', className: 'h-14 md:h-20' },
 ];
 
 export const LogoMarquee = () => {
@@ -32,12 +32,12 @@ export const LogoMarquee = () => {
         {duplicatedLogos.map((logo, index) => (
           <div
             key={index}
-            className="flex-shrink-0 h-10 md:h-16 flex items-center justify-center"
+            className="flex-shrink-0 flex items-center justify-center"
           >
             <img
               src={logo.src}
               alt={logo.alt}
-              className="h-full w-auto object-contain max-w-[140px] md:max-w-[200px]"
+              className={`w-auto object-contain ${logo.className}`}
             />
           </div>
         ))}
