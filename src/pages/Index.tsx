@@ -287,12 +287,12 @@ const Index = () => {
           >
             <h2 className="font-display text-xl md:text-3xl tracking-wide mb-2">{t('instagram.title')}</h2>
             <a 
-              href="https://instagram.com/olivestudios" 
+              href="https://instagram.com/_olivestudios" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-sm md:text-base text-muted-foreground hover:text-foreground transition-colors"
             >
-              @olivestudios
+              @_olivestudios
             </a>
           </motion.div>
 
