@@ -1,6 +1,38 @@
 import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { useCountUp } from '@/hooks/useCountUp';
+
+const CountUpStat = ({ 
+  end, 
+  suffix = '', 
+  label, 
+  delay = 0,
+  decimals = 0 
+}: { 
+  end: number; 
+  suffix?: string; 
+  label: string; 
+  delay?: number;
+  decimals?: number;
+}) => {
+  const { count, elementRef } = useCountUp({ end, duration: 2000, delay, decimals });
+  
+  return (
+    <motion.div
+      ref={elementRef}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: delay / 1000 }}
+    >
+      <p className="font-serif text-4xl mb-1">
+        {decimals > 0 ? count.toFixed(decimals) : count}{suffix}
+      </p>
+      <p className="text-sm text-muted-foreground">{label}</p>
+    </motion.div>
+  );
+};
 
 const reviews = [
   {
@@ -99,24 +131,18 @@ const Reviews = () => {
               <p className="font-serif text-2xl mb-1">5.0</p>
               <p className="text-sm text-muted-foreground">{t('reviews.averageRating')}</p>
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <p className="font-serif text-4xl mb-1">200+</p>
-              <p className="text-sm text-muted-foreground">{t('reviews.happyCollectors')}</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <p className="font-serif text-4xl mb-1">100%</p>
-              <p className="text-sm text-muted-foreground">{t('reviews.satisfaction')}</p>
-            </motion.div>
+            <CountUpStat 
+              end={200} 
+              suffix="+" 
+              label={t('reviews.happyCollectors')} 
+              delay={100} 
+            />
+            <CountUpStat 
+              end={100} 
+              suffix="%" 
+              label={t('reviews.satisfaction')} 
+              delay={200} 
+            />
           </div>
         </div>
       </section>
