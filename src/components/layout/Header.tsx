@@ -272,7 +272,7 @@ export const Header = () => {
             className="flex items-center gap-1 md:gap-1.5 text-lg md:text-2xl tracking-wider text-cream"
           >
             <img src={oliveLogo} alt="Olive Studios" className="h-12 md:h-[5.25rem] w-auto" />
-            <span style={{ fontFamily: "'Jost', 'Futura', system-ui, sans-serif" }}>Olive Studios</span>
+            <span className="font-medium" style={{ fontFamily: "'Jost', 'Futura', system-ui, sans-serif" }}>Olive Studios</span>
           </Link>
 
           {/* Desktop Navigation - Absolutely Centered */}
