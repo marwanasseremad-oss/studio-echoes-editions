@@ -366,5 +366,5 @@ html::-webkit-scrollbar {
 }
 
 .animate-marquee {
-  animation: marquee 90s linear infinite;
+  animation: marquee 120s linear infinite;
 }
