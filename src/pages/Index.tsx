@@ -119,7 +119,9 @@ const Index = () => {
             <span className="text-[10px] md:text-xs tracking-ultra uppercase text-primary-foreground/50 -mb-1 block">
               {t('asSeenOn.title')}
             </span>
-            <LogoMarquee />
+            <div className="-mt-2">
+              <LogoMarquee />
+            </div>
           </motion.div>
         </div>
       </section>
