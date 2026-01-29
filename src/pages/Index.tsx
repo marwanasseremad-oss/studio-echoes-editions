@@ -107,23 +107,21 @@ const Index = () => {
       </section>
 
       {/* As Seen On */}
-      <section className="bg-primary py-3 md:py-4">
-        <div className="gallery-container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center flex flex-col items-center"
-          >
-            <span className="font-display text-[10px] md:text-xs tracking-ultra uppercase text-primary-foreground/50 -mb-1 block">
-              {t('asSeenOn.title')}
-            </span>
-            <div className="-mt-2">
-              <LogoMarquee />
-            </div>
-          </motion.div>
-        </div>
+      <section className="bg-primary py-3 md:py-4 overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center flex flex-col items-center"
+        >
+          <span className="font-display text-[10px] md:text-xs tracking-ultra uppercase text-primary-foreground/50 -mb-1 block">
+            {t('asSeenOn.title')}
+          </span>
+          <div className="w-full">
+            <LogoMarquee />
+          </div>
+        </motion.div>
       </section>
 
       {/* Featured Collection */}
