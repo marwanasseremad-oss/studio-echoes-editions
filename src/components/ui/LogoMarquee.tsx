@@ -14,7 +14,7 @@ export const LogoMarquee = () => {
   const duplicatedLogos = [...logos, ...logos, ...logos];
 
   return (
-    <div className="overflow-hidden w-full">
+    <div className="overflow-hidden w-full flex justify-center">
       <motion.div
         className="flex items-center gap-16 md:gap-24"
         animate={{
