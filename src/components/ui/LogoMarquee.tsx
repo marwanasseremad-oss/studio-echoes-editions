@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import egyptianStreetsLogo from '@/assets/logos/egyptian-streets.png';
 import cairo360Logo from '@/assets/logos/cairo-360.png';
@@ -10,21 +11,32 @@ const logos = [
 ];
 
 export const LogoMarquee = () => {
-  // Duplicate logos for seamless loop
-  const duplicatedLogos = [...logos, ...logos, ...logos];
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [contentWidth, setContentWidth] = useState(0);
+
+  // Duplicate logos multiple times for seamless loop
+  const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
+
+  useEffect(() => {
+    if (containerRef.current) {
+      // Get width of one set of logos (1/4 of total since we have 4 sets)
+      setContentWidth(containerRef.current.scrollWidth / 4);
+    }
+  }, []);
 
   return (
-    <div className="overflow-hidden w-full flex justify-center">
+    <div className="overflow-hidden w-full">
       <motion.div
+        ref={containerRef}
         className="flex items-center gap-16 md:gap-24"
         animate={{
-          x: ['0%', '-33.33%'],
+          x: contentWidth ? [0, -contentWidth] : 0,
         }}
         transition={{
           x: {
             repeat: Infinity,
             repeatType: 'loop',
-            duration: 15,
+            duration: 12,
             ease: 'linear',
           },
         }}
