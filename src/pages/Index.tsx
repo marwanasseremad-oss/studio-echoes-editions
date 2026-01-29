@@ -107,16 +107,16 @@ const Index = () => {
       </section>
 
       {/* As Seen On */}
-      <section className="bg-primary py-6 md:py-8">
+      <section className="bg-primary py-3 md:py-4">
         <div className="gallery-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center"
+            className="text-center flex flex-col items-center"
           >
-            <span className="text-[10px] md:text-xs tracking-ultra uppercase text-primary-foreground/50 mb-3 md:mb-4 block">
+            <span className="text-[10px] md:text-xs tracking-ultra uppercase text-primary-foreground/50 mb-2 md:mb-3 block">
               {t('asSeenOn.title')}
             </span>
             <LogoMarquee />
