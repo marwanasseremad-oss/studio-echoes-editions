@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Shield, Award, Truck, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ProductCard } from '@/components/ui/ProductCard';
+import { LogoMarquee } from '@/components/ui/LogoMarquee';
 import { getFeaturedProducts } from '@/data/products';
 import { useLanguage } from '@/context/LanguageContext';
 import heroImage from '@/assets/hero-cairo.jpg';
@@ -118,13 +119,7 @@ const Index = () => {
             <span className="text-[10px] md:text-xs tracking-ultra uppercase text-primary-foreground/60 mb-6 md:mb-8 block">
               {t('asSeenOn.title')}
             </span>
-            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
-              {/* Placeholder logos - replace with actual publication logos */}
-              <div className="h-6 md:h-8 w-24 md:w-32 bg-primary-foreground/20 rounded-[15px]" />
-              <div className="h-6 md:h-8 w-24 md:w-32 bg-primary-foreground/20 rounded-[15px]" />
-              <div className="h-6 md:h-8 w-24 md:w-32 bg-primary-foreground/20 rounded-[15px]" />
-              <div className="h-6 md:h-8 w-24 md:w-32 bg-primary-foreground/20 rounded-[15px]" />
-            </div>
+            <LogoMarquee />
           </motion.div>
         </div>
       </section>
