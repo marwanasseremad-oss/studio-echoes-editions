@@ -172,21 +172,25 @@ const ArtworkDetail = () => {
 
               {/* Size Selector */}
               <div className="mb-5 md:mb-6">
-                <span className="text-xs md:text-sm font-medium mb-2 md:mb-3 block">Size (cm)</span>
+                <span className="text-xs md:text-sm font-medium mb-2 md:mb-3 block">Size</span>
                 <div className="flex flex-wrap gap-2 md:gap-3">
-                  {availableSizes.map((size) => (
-                    <button
-                      key={size}
-                      onClick={() => setSelectedSize(size)}
-                      className={`px-4 md:px-6 py-2 md:py-3 text-xs md:text-sm border rounded-[15px] transition-colors ${
-                        selectedSize === size
-                          ? 'bg-primary text-primary-foreground border-primary'
-                          : 'border-border hover:border-primary'
-                      }`}
-                    >
-                      {size.replace(' cm', '')}
-                    </button>
-                  ))}
+                  {availableSizes.map((size, index) => {
+                    const sizeLabel = index === 0 ? 'S' : index === 1 ? 'M' : 'L';
+                    const sizeValue = size.replace(' cm', '');
+                    return (
+                      <button
+                        key={size}
+                        onClick={() => setSelectedSize(size)}
+                        className={`px-4 md:px-6 py-2 md:py-3 text-xs md:text-sm border rounded-[15px] transition-colors ${
+                          selectedSize === size
+                            ? 'bg-primary text-primary-foreground border-primary'
+                            : 'border-border hover:border-primary'
+                        }`}
+                      >
+                        <span className="font-bold">{sizeLabel}</span> {sizeValue} cm
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 
