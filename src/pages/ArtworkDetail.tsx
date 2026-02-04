@@ -187,7 +187,7 @@ const ArtworkDetail = () => {
                             : 'border-border hover:border-primary'
                         }`}
                       >
-                        <span className="font-bold">{sizeLabel}</span> {sizeValue} cm
+                        <span className="font-bold mr-1.5">{sizeLabel}</span> {sizeValue} cm
                       </button>
                     );
                   })}
