@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { useCartSync } from "@/hooks/useCartSync";
 import { Layout } from "@/components/layout/Layout";
-import { PasswordGate } from "@/components/PasswordGate";
+
 import Index from "./pages/Index";
 import Collection from "./pages/Collection";
 import ArtworkDetail from "./pages/ArtworkDetail";
@@ -64,11 +64,9 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <LanguageProvider>
       <TooltipProvider>
-        <PasswordGate>
-          <Toaster />
-          <Sonner />
-          <AppContent />
-        </PasswordGate>
+        <Toaster />
+        <Sonner />
+        <AppContent />
       </TooltipProvider>
     </LanguageProvider>
   </QueryClientProvider>
