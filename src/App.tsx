@@ -24,6 +24,7 @@ import FAQ from "./pages/FAQ";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Checkout from "./pages/Checkout";
+import CollectorsCircle from "./pages/CollectorsCircle";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
