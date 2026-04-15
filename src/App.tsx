@@ -54,6 +54,7 @@ const AppContent = () => {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/collectors-circle" element={<CollectorsCircle />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
