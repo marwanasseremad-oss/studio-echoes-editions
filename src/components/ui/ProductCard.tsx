@@ -42,7 +42,10 @@ export const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
           <h3 className="font-display text-sm md:text-lg tracking-wide">{title}</h3>
           <p className="hidden md:block text-sm text-muted-foreground">{artistName}</p>
           <div className="pt-1 md:pt-2">
-            <p className="text-xs md:text-sm">{t('product.from')} {formatPrice(lowestPrice)} EGP</p>
+            <p className="text-xs md:text-sm font-medium">{t('product.from')} {formatPrice(lowestPrice)} EGP</p>
+            <p className="text-[10px] md:text-xs text-muted-foreground mt-0.5">
+              {product.editionSize - product.editionsSold} of {product.editionSize} editions remaining
+            </p>
           </div>
         </div>
       </Link>

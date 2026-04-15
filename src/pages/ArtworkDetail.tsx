@@ -166,7 +166,7 @@ const ArtworkDetail = () => {
                 </div>
                 <div>
                   <span className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-wide block mb-0.5 md:mb-1">Availability</span>
-                  <span className="font-serif text-base md:text-lg">{localProduct.editionSize - localProduct.editionsSold} remaining</span>
+                  <span className="font-serif text-base md:text-lg text-gallery-gold">{localProduct.editionSize - localProduct.editionsSold} of {localProduct.editionSize} remaining</span>
                 </div>
               </div>
 
