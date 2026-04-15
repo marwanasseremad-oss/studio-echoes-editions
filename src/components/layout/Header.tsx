@@ -95,6 +95,7 @@ const getNavLinks = (language: 'en' | 'ar'): NavLink[] => {
           {
             title: 'Learn More',
             items: [
+              { href: '/collectors-circle', label: "Collector's Circle" },
               { href: '/faq', label: 'FAQs' },
               { href: '/print-quality', label: 'Print Quality' },
             ]
@@ -172,6 +173,7 @@ const getNavLinks = (language: 'en' | 'ar'): NavLink[] => {
           {
             title: 'اعرف المزيد',
             items: [
+              { href: '/collectors-circle', label: 'دائرة الجامعين' },
               { href: '/faq', label: 'الأسئلة الشائعة' },
               { href: '/print-quality', label: 'جودة الطباعة' },
             ]

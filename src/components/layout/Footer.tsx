@@ -44,6 +44,9 @@ export const Footer = () => {
               <Link to="/corporate" className="text-xs md:text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
                 {t('nav.corporate')}
               </Link>
+              <Link to="/collectors-circle" className="text-xs md:text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+                Collector's Circle
+              </Link>
               <Link to="/reviews" className="text-xs md:text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
                 {t('nav.reviews')}
               </Link>
