@@ -26,40 +26,15 @@ import Terms from "./pages/Terms";
 import Checkout from "./pages/Checkout";
 import CollectorsCircle from "./pages/CollectorsCircle";
 import NotFound from "./pages/NotFound";
+import ComingSoon from "./pages/ComingSoon";
 
 const queryClient = new QueryClient();
 
 // Cart sync wrapper component
 const AppContent = () => {
   useCartSync();
-  
-  return (
-    <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/collection" element={<Collection />} />
-          <Route path="/artwork/:id" element={<ArtworkDetail />} />
-          <Route path="/artists" element={<Artists />} />
-          <Route path="/artists/:id" element={<ArtistDetail />} />
-          <Route path="/print-quality" element={<PrintQuality />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/shipping" element={<Shipping />} />
-          <Route path="/care" element={<Care />} />
-          <Route path="/reviews" element={<Reviews />} />
-          <Route path="/corporate" element={<Corporate />} />
-          <Route path="/bespoke" element={<Bespoke />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/collectors-circle" element={<CollectorsCircle />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Layout>
-    </BrowserRouter>
-  );
+
+  return <ComingSoon />;
 };
 
 const App = () => (
