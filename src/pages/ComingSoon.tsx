@@ -7,19 +7,13 @@ const ComingSoon = () => {
         <img
           src={logo}
           alt="Olive Studios"
-          className="w-40 md:w-56 h-auto mb-8 md:mb-10 select-none"
+          className="w-40 md:w-56 h-auto mb-3 md:mb-4 select-none"
           draggable={false}
         />
-        <p
-          className="text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-foreground mb-3"
-          style={{ fontFamily: "Helvetica, 'Helvetica Neue', Arial, sans-serif" }}
-        >
+        <p className="font-display text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-olive-deep mb-8 md:mb-10">
           OLIVE STUDIOS
         </p>
-        <p
-          className="text-2xl md:text-3xl font-bold uppercase tracking-tight text-foreground"
-          style={{ fontFamily: "Helvetica, 'Helvetica Neue', Arial, sans-serif" }}
-        >
+        <p className="font-display text-2xl md:text-3xl font-bold uppercase tracking-tight text-olive-deep">
           COMING SOON
         </p>
       </div>
