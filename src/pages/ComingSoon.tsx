@@ -10,8 +10,11 @@ const ComingSoon = () => {
           className="w-40 md:w-56 h-auto mb-8 md:mb-10 select-none"
           draggable={false}
         />
-        <p className="font-serif text-2xl md:text-3xl tracking-[0.3em] uppercase text-foreground">
-          Coming Soon
+        <p
+          className="text-2xl md:text-3xl font-bold uppercase tracking-tight text-foreground"
+          style={{ fontFamily: "Helvetica, 'Helvetica Neue', Arial, sans-serif" }}
+        >
+          COMING SOON
         </p>
       </div>
     </div>
