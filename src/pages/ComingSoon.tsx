@@ -10,11 +10,11 @@ const ComingSoon = () => {
           className="w-40 md:w-56 h-auto mb-3 md:mb-4 select-none"
           draggable={false}
         />
-        <p className="font-display text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-olive-deep mb-8 md:mb-10">
+        <p className="font-display text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-olive-cream mb-8 md:mb-10">
           OLIVE STUDIOS
         </p>
-        <p className="font-display text-2xl md:text-3xl font-bold uppercase tracking-tight text-olive-deep">
-          COMING SOON
+        <p className="font-display text-2xl md:text-3xl font-bold tracking-tight text-olive-cream">
+          Coming Soon
         </p>
       </div>
     </div>
