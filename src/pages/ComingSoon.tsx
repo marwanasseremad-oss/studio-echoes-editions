@@ -11,6 +11,12 @@ const ComingSoon = () => {
           draggable={false}
         />
         <p
+          className="text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-foreground mb-3"
+          style={{ fontFamily: "Helvetica, 'Helvetica Neue', Arial, sans-serif" }}
+        >
+          OLIVE STUDIOS
+        </p>
+        <p
           className="text-2xl md:text-3xl font-bold uppercase tracking-tight text-foreground"
           style={{ fontFamily: "Helvetica, 'Helvetica Neue', Arial, sans-serif" }}
         >
